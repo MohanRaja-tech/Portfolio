@@ -68,7 +68,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: #f8f5fb;
+        background-color: var(--card-bg);  /* Changed from #f8f5fb to match dark theme */
     }
 
     .project-card-1 .card-banner:hover img {
@@ -132,6 +132,24 @@
         display: block; /* Changed from -webkit-box */
         overflow: auto; /* Changed from hidden */
         -webkit-line-clamp: unset; /* Removed line clamping */
+        color: var(--text-primary); /* Changed from var(--text-secondary) */
+        font-weight: 500; /* Added for better visibility */
+        opacity: 0.95; /* Added for better contrast */
+        letter-spacing: 0.3px; /* Added for better readability */
+    }
+
+    .about-card .card-title {
+        margin-bottom: 0;
+        min-height: auto;
+        display: flex;
+        align-items: center;
+        color: var(--text-primary);
+        font-weight: 700;
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+        background: var(--gradient-1);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
     }
 
     .leetcode-icon {
@@ -244,11 +262,38 @@
 
     .about-card {
         transition: all 0.3s ease;
+        position: relative;
+        z-index: 1;
+        overflow: hidden;
+    }
+
+    .about-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: var(--gradient-1);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: -1;
+    }
+
+    .about-card:hover::before {
+        opacity: 0.1;
     }
 
     .about-card:hover {
         transform: translateY(-5px);
-        box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        box-shadow: 0 8px 25px rgba(79, 70, 229, 0.3);
+        border-color: rgba(79, 70, 229, 0.3);
+    }
+
+    .about-card:hover .card-title {
+        background: var(--gradient-1);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
     }
 
     .success-message {
@@ -579,6 +624,37 @@
         .logo img {
             max-width: 120px;
         }
+
+        .project-card .card-content {
+          background-color: var(--card-bg) !important;
+        }
+
+        .project-card .h3.card-title {
+          color: var(--text-primary);
+          font-weight: 700;
+          font-size: 1.6rem;
+          background: var(--gradient-1);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+
+        .project-card .card-tag {
+          color: var(--text-primary) !important;
+        }
+
+        .project-card .card-text {
+          color: var(--text-secondary) !important;
+        }
+
+        .about-card .card-text {
+            color: var(--text-primary);
+            opacity: 0.95;
+            font-size: 1rem;
+        }
+        
+        .about-card .card-title {
+            font-size: 1.3rem;
+        }
     }
 
     @media (max-width: 480px) {
@@ -682,6 +758,418 @@
         text-transform: uppercase;
         letter-spacing: 2px;
     }
+
+    /* Add these CSS variables at the top of your style section */
+    :root {
+      --bg-primary: #0a0a0a;
+      --bg-secondary: #111111;
+      --text-primary: #ffffff;
+      --text-secondary: #b3b3b3;
+      --accent: #4f46e5;
+      --accent-dark: #4338ca;
+      --card-bg: #1a1a1a;
+      --gradient-1: linear-gradient(45deg, #4f46e5, #06b6d4);
+      --gradient-2: linear-gradient(45deg, #3b82f6, #10b981);
+      --shadow: 0 0 20px rgba(79, 70, 229, 0.15);
+    }
+
+    /* Update existing styles */
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+    }
+
+    .logo h2 {
+      background: var(--gradient-1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .navbar-link:hover {
+      color: var(--accent);
+      transform: translateY(-2px);
+      transition: all 0.3s ease;
+    }
+
+    .about-card {
+      background-color: var(--card-bg);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: var(--shadow);
+    }
+
+    .project-card {
+      background-color: var(--card-bg) !important;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: var(--shadow);
+    }
+
+    .card-text {
+      color: var(--text-secondary);
+    }
+
+    .btn-primary {
+      background: var(--gradient-1);
+      border: none;
+      box-shadow: 0 4px 15px rgba(79, 70, 229, 0.3);
+    }
+
+    .btn-secondary {
+      background: var(--gradient-2);
+      border: none;
+      box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+    }
+
+    .hero-banner {
+      border: 4px solid transparent;
+      background: 
+        linear-gradient(var(--bg-primary), var(--bg-primary)) padding-box,
+        var(--gradient-1) border-box;
+      box-shadow: var(--shadow);
+    }
+
+    .progress {
+      background-color: var(--card-bg);
+    }
+
+    .progress-fill {
+      background: var(--gradient-1) !important;
+    }
+
+    .contact-card {
+      background-color: var(--card-bg);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: var(--shadow);
+    }
+
+    .input-field {
+      background-color: var(--bg-secondary);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--text-primary);
+    }
+
+    .social-link:hover {
+      color: var(--accent);
+      transform: translateY(-3px) scale(1.1);
+      filter: drop-shadow(0 0 10px var(--accent));
+    }
+
+    /* Add animation effects */
+    .hero-banner img {
+      transition: transform 0.5s ease, filter 0.5s ease;
+    }
+
+    .hero-banner:hover img {
+      transform: scale(1.05);
+      filter: brightness(1.1);
+    }
+
+    .project-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(79, 70, 229, 0.2);
+    }
+
+    /* Update success message */
+    .success-message {
+      background: var(--gradient-1);
+    }
+
+    /* Update scrollbar */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--bg-secondary);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--gradient-1);
+      border-radius: 5px;
+    }
+
+    /* Glowing effect for important elements */
+    .section-title {
+      background: var(--gradient-1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 100px;
+      height: 3px;
+      background: var(--gradient-1);
+      border-radius: 3px;
+    }
+
+    /* Dark theme header updates */
+    .header {
+      background-color: var(--bg-primary);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .navbar {
+      background-color: var(--bg-primary);
+    }
+
+    .navbar-top {
+      background-color: var(--bg-primary);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .navbar-list {
+      background-color: var(--bg-primary);
+    }
+
+    .navbar-link {
+      color: var(--text-primary);
+    }
+
+    .nav-open-btn ion-icon,
+    .nav-close-btn ion-icon {
+      color: var(--text-primary);
+    }
+
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .hero {
+      background-color: var(--bg-primary);
+    }
+
+    .hero-content {
+      color: var(--text-primary);
+    }
+
+    .hero-title {
+      background: var(--gradient-1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 700;
+    }
+
+    .section-text {
+      color: var(--text-secondary);
+    }
+
+    /* Update mobile navbar */
+    @media (max-width: 768px) {
+      .navbar {
+        background-color: var(--bg-secondary);
+        box-shadow: var(--shadow);
+      }
+
+      .navbar-top {
+        background-color: var(--bg-secondary);
+      }
+    }
+
+    .achievements-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .achievement-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+
+    .achievement-card {
+      background: var(--card-bg);
+      border-radius: 15px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      height: 100%;
+      display: flex; /* Added */
+      flex-direction: column; /* Added */
+    }
+
+    .achievement-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(79, 70, 229, 0.2);
+    }
+
+    .achievement-banner {
+      width: 100%;
+      height: auto; /* Changed from fixed height */
+      overflow: hidden;
+      aspect-ratio: 16/9; /* Added to maintain consistent image ratio */
+      position: relative; /* Added for better image control */
+    }
+
+    .achievement-banner img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain; /* Changed from cover to contain */
+      transition: transform 0.3s ease;
+      padding: 10px; /* Added padding to prevent edge touching */
+      background-color: var(--card-bg); /* Match card background */
+    }
+
+    .achievement-card:hover .achievement-banner img {
+      transform: scale(1.1);
+    }
+
+    .achievement-content {
+      padding: 1.5rem;
+      flex-grow: 1; /* Added to maintain consistent card heights */
+    }
+
+    .achievement-content .card-title {
+      color: var(--text-primary);
+      margin-bottom: 1rem;
+      font-size: 1.25rem;
+    }
+
+    .achievement-text {
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+      .achievement-row {
+        grid-template-columns: 1fr;
+      }
+      
+      .achievement-banner {
+        height: 200px;
+      }
+    }
+
+    /* Update the achievements grid styles */
+    .achievements-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+      margin-top: 3rem;
+    }
+
+    .achievement-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .achievement-card {
+      background: var(--card-bg);
+      border-radius: 15px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      height: 100%;
+    }
+
+    .achievement-banner {
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
+    }
+
+    .achievement-banner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .achievement-content {
+      padding: 1.5rem;
+    }
+
+    /* Mobile responsiveness */
+    @media (max-width: 992px) {
+      .achievement-row {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .achievement-row {
+        grid-template-columns: 1fr;
+      }
+      
+      .achievement-banner {
+        height: 200px;
+      }
+    }
+
+    .project-card .h3.card-title {
+      color: var(--text-primary);
+      font-weight: 700;
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      background: var(--gradient-1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .project-card .card-tag {
+      color: var(--text-primary) !important;
+      font-weight: 600;
+      opacity: 0.9;
+    }
+
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .tech-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1rem;
+      background: var(--card-bg);
+      border-radius: 12px;
+      transition: all 0.3s ease;
+    }
+
+    .tech-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(79, 70, 229, 0.3);
+    }
+
+    .tech-item img {
+      width: 50px;
+      height: 50px;
+      object-fit: contain;
+    }
+
+    .tech-item span {
+      color: var(--text-primary);
+      font-weight: 500;
+    }
+
+    @media (max-width: 768px) {
+      .tech-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .tech-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+   
   </style>
 
 </head>
@@ -723,6 +1211,10 @@
 
           <li>
             <a href="#projects" class="navbar-link">Projects</a>
+          </li>
+
+          <li>
+            <a href="#achievements" class="navbar-link">Achievements</a>
           </li>
 
           <li>
@@ -801,7 +1293,7 @@
             <div class="btn-wrapper" data-reveal="top" data-reveal-delay="1s">
               <a href="#" class="btn btn-primary">Download CV</a>
 
-              <a href="#" class="btn btn-secondary">Contact Me</a>
+              <a href="https://wa.me/+919003948329" target="_blank" class="btn btn-secondary">Contact Me</a>
             </div>
 
           </div>
@@ -832,65 +1324,59 @@ Continuously learning and adapting, I strive to contribute to impactful technolo
               </p>
             </div>
 
-            <ul class="progress-list" data-reveal="right">
-
-              <li class="progress-item">
-
-                <div class="label-wrapper">
-                  <p>Java</p>
-
-                  <span class="span">100 %</span>
+            <div data-reveal="right">
+              <h2 class="h2 section-title">Technologies</h2>
+              <div class="tech-grid">
+                <div class="tech-item">
+                  <img src="./assets/images/java-vertical.svg" alt="Java">
+                  <span>Java</span>
                 </div>
-
-                <div class="progress">
-                  <div class="progress-fill" style="width: 100%; background-color: #c7b1dd"></div>
+                <div class="tech-item">
+                  <img src="./assets/images/python-svgrepo-com.svg" alt="Python">
+                  <span>Python</span>
                 </div>
-
-              </li>
-
-              <li class="progress-item">
-
-                <div class="label-wrapper">
-                  <p>Javascript</p>
-
-                  <span class="span">70 %</span>
+                <div class="tech-item">
+                  <img src="./assets/images/html-5-svgrepo-com.svg" alt="JavaScript">
+                  <span>HTML</span>
                 </div>
-
-                <div class="progress">
-                  <div class="progress-fill" style="width: 80%; background-color: #8caeec"></div>
+                <div class="tech-item">
+                  <img src="./assets/images/css-3-svgrepo-com.svg" alt="React">
+                  <span>CSS</span>
                 </div>
-
-              </li>
-
-              <li class="progress-item">
-
-                <div class="label-wrapper">
-                  <p>Python</p>
-
-                  <span class="span">85 %</span>
+                <div class="tech-item">
+                  <img src="./assets/images/javascript-logo-svgrepo-com.svg" alt="HTML5">
+                  <span>Javascript</span>
                 </div>
-
-                <div class="progress">
-                  <div class="progress-fill" style="width: 85%; background-color: #b0d4c1"></div>
+                <div class="tech-item">
+                  <img src="./assets/images/react-svgrepo-com.svg" alt="CSS3">
+                  <span>React</span>
                 </div>
-
-              </li>
-
-              <li class="progress-item">
-
-                <div class="label-wrapper">
-                  <p>React</p>
-
-                  <span class="span">60 %</span>
+                <div class="tech-item">
+                  <img src="./assets/images/nodejs-logo-svgrepo-com.svg" alt="Node.js">
+                  <span>Node JS</span>
                 </div>
-
-                <div class="progress">
-                  <div class="progress-fill" style="width: 90%; background-color: #e3a6b6"></div>
+                <div class="tech-item">
+                  <img src="./assets/images/mysql-logo-svgrepo-com.svg" alt="MySQL">
+                  <span>MySQL</span>
                 </div>
-
-              </li>
-
-            </ul>
+                <div class="tech-item">
+                  <img src="./assets/images/git-icon-logo-svgrepo-com.svg" alt="Git">
+                  <span>Git</span>
+                </div>
+                <div class="tech-item">
+                  <img src="./assets/images/mongodb-svgrepo-com.svg" alt="MongoDB">
+                  <span>MongoDB</span>
+                </div>
+                <div class="tech-item">
+                  <img src="./assets/images/opencv-svgrepo-com.svg" alt="Bootstrap">
+                  <span>Open CV</span>
+                </div>
+                <div class="tech-item">
+                  <img src="./assets/images/langchain.svg" alt="Tailwind">
+                  <span>Langchain</span>
+                </div>
+              </div>
+            </div>
 
           </div>
 
@@ -975,7 +1461,7 @@ Continuously learning and adapting, I strive to contribute to impactful technolo
           <ul class="grid-list">
 
             <li>
-              <div class="project-card project-card-1" style="background-color: #f8f5fb">
+              <div class="project-card project-card-1" style="background-color: var(--card-bg)">
 
                 <div class="card-content" data-reveal="left">
 
@@ -1000,7 +1486,7 @@ Designed to operate independently of OS-level security, it offers robust protect
             </li>
 
             <li>
-              <div class="project-card project-card-2" style="background-color: #f1f5fd">
+              <div class="project-card project-card-2" style="background-color: var(--card-bg)">
 
                 <div class="card-content" data-reveal="right">
 
@@ -1026,7 +1512,7 @@ Designed to operate independently of OS-level security, it offers robust protect
             </li>
 
             <li>
-              <div class="project-card project-card-3" style="background-color: #f5faf7">
+              <div class="project-card project-card-3" style="background-color: var(--card-bg)">
 
                 <div class="card-content" data-reveal="left">
 
@@ -1053,7 +1539,7 @@ Designed to automate manual recognition tasks, the system significantly reduces 
             </li>
 
             <li>
-              <div class="project-card project-card-4" style="background-color: #fcf4f6">
+              <div class="project-card project-card-4" style="background-color: var(--card-bg)">
 
                 <div class="card-content" data-reveal="left">
 
@@ -1084,9 +1570,221 @@ Designed to automate manual recognition tasks, the system significantly reduces 
         </div>
       </section>
 
+      <!-- 
+        - #ACHIEVEMENTS
+      -->
+      <section class="section achievements" aria-labelledby="achievements-label" id="achievements">
+        <div class="container">
+          <div class="title-wrapper" data-reveal="top">
+            <div>
+              <h2 class="h2 section-title" id="achievements-label">Achievements</h2>
+              <p class="section-text">
+                Notable recognitions and accomplishments in my journey.
+              </p>
+            </div>
+          </div>
 
+          <div class="achievements-grid">
+            <!-- Row 1 -->
+            <div class="achievement-row">
+              <div class="achievement-card" data-reveal="left">
+                <figure class="achievement-banner">
+                  <img src="./assets/images/Codeathon 24 prize.jpg" alt="Codeathon">
+                </figure>
+                <div class="achievement-content">
+                  <h3 class="h4 card-title">Codeathon Winner</h3>
+                  <p class="achievement-text">
+                    First place in National level hackathon for innovative solution in healthcare technology.
+                  </p>
+                </div>
+              </div>
 
+              <div class="achievement-card" data-reveal="left">
+                <figure class="achievement-banner">
+                  <img src="./assets/images/Eshwar Hackathon.jpg" alt="Hackathon">
+                </figure>
+                <div class="achievement-content">
+                  <h3 class="h4 card-title">24-HRS Hackathon</h3>
+                  <p class="achievement-text">
+                    Secured top position in inter-college competitive programming contest.
+                  </p>
+                </div>
+              </div>
 
+              <div class="achievement-card" data-reveal="right">
+                <figure class="achievement-banner">
+                  <img src="./assets/images/Prototype expo 2025.jpg" alt="Prototype Expo">
+                </figure>
+                <div class="achievement-content">
+                  <h3 class="h4 card-title">Software Prototype Expo</h3>
+                  <p class="achievement-text">
+                    Secured top position in software prototype exhibition.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Row 2 -->
+            <div class="achievement-row">
+              <div class="achievement-card" data-reveal="left">
+                <figure class="achievement-banner">
+                  <img src="./assets/images/Ruby year 2025.jpg" alt="Ruby Year">
+                </figure>
+                <div class="achievement-content">
+                  <h3 class="h4 card-title">Ruby Year Prototype Expo 2025</h3>
+                  <p class="achievement-text">
+                    Winner of the Ruby Year prototype exhibition with innovative project.
+                  </p>
+                </div>
+              </div>
+
+              <div class="achievement-card" data-reveal="left">
+                <figure class="achievement-banner">
+                  <img src="./assets/images/csd Technical presentation.jpg" alt="Technical Presentation">
+                </figure>
+                <div class="achievement-content">
+                  <h3 class="h4 card-title">Technical Presentation</h3>
+                  <p class="achievement-text">
+                    Best technical presentation award at college symposium.
+                  </p>
+                </div>
+              </div>
+
+              <div class="achievement-card" data-reveal="right">
+                <figure class="achievement-banner">
+                  <img src="./assets/images/sign in expo.jpg" alt="SignIn Expo">
+                </figure>
+                <div class="achievement-content">
+                  <h3 class="h4 card-title">SignIn Project Expo</h3>
+                  <p class="achievement-text">
+                    First prize in SignIn project exhibition for innovative solution.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- New Third Row -->
+            <div class="achievement-row">
+              <div class="achievement-card" data-reveal="left">
+                <figure class="achievement-banner">
+                  <img src="./assets/images/IT Inception 24 paper.jpg" alt="Achievement 7">
+                </figure>
+                <div class="achievement-content">
+                  <h3 class="h4 card-title">Paper Presentation</h3>
+                  <p class="achievement-text">
+                    Top performer in algorithmic problem solving competition.
+                  </p>
+                </div>
+              </div>
+
+              <div class="achievement-card" data-reveal="left">
+                <figure class="achievement-banner">
+                  <img src="./assets/images/mark us Hackathon.jpg" alt="Achievement 8">
+                </figure>
+                <div class="achievement-content">
+                  <h3 class="h4 card-title">1 Day Hackathon</h3>
+                  <p class="achievement-text">
+                    Best website design award in college tech fest.
+                  </p>
+                </div>
+              </div>
+
+              <div class="achievement-card" data-reveal="right">
+                <figure class="achievement-banner">
+                  <img src="./assets/images/SNS Project.jpg" alt="Achievement 9">
+                </figure>
+                <div class="achievement-content">
+                  <h3 class="h4 card-title">Prototype Presentation</h3>
+                  <p class="achievement-text">
+                    Recognition for outstanding project implementation.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- New Fourth Row -->
+            <div class="achievement-row">
+              <div class="achievement-card" data-reveal="left">
+                <figure class="achievement-banner">
+                  <img src="./assets/images/Nandha paper.jpg" alt="Achievement 10">
+                </figure>
+                <div class="achievement-content">
+                  <h3 class="h4 card-title">Paper Presentation</h3>
+                  <p class="achievement-text">
+                    Winner in machine learning model development contest.
+                  </p>
+                </div>
+              </div>
+
+              <div class="achievement-card" data-reveal="left">
+                <figure class="achievement-banner">
+                  <img src="./assets/images/JJ prize.jpg" alt="Achievement 11">
+                </figure>
+                <div class="achievement-content">
+                  <h3 class="h4 card-title"></h3>
+                  <p class="achievement-text">
+                    Best innovative IoT solution award.
+                  </p>
+                </div>
+              </div>
+
+              <div class="achievement-card" data-reveal="right">
+                <figure class="achievement-banner">
+                  <img src="./assets/images/JJ paper.jpg" alt="Achievement 12">
+                </figure>
+                <div class="achievement-content">
+                  <h3 class="h4 card-title">Tech Paper</h3>
+                  <p class="achievement-text">
+                    Best technical paper presentation award.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- New Fifth Row - Commented out -->
+            <!--
+            <div class="achievement-row">
+              <div class="achievement-card" data-reveal="left">
+                <figure class="achievement-banner">
+                  <img src="./assets/images/achievement-13.jpg" alt="Achievement 13">
+                </figure>
+                <div class="achievement-content">
+                  <h3 class="h4 card-title">Cloud Project</h3>
+                  <p class="achievement-text">
+                    Excellence in cloud computing implementation.
+                  </p>
+                </div>
+              </div>
+
+              <div class="achievement-card" data-reveal="left">
+                <figure class="achievement-banner">
+                  <img src="./assets/images/achievement-14.jpg" alt="Achievement 14">
+                </figure>
+                <div class="achievement-content">
+                  <h3 class="h4 card-title">Security Award</h3>
+                  <p class="achievement-text">
+                    Recognition for cybersecurity innovation.
+                  </p>
+                </div>
+              </div>
+
+              <div class="achievement-card" data-reveal="right">
+                <figure class="achievement-banner">
+                  <img src="./assets/images/achievement-15.jpg" alt="Achievement 15">
+                </figure>
+                <div class="achievement-content">
+                  <h3 class="h4 card-title">UI/UX Design</h3>
+                  <p class="achievement-text">
+                    Best user interface design award.
+                  </p>
+                </div>
+              </div>
+            </div>
+            -->
+
+          </div>
+        </div>
+      </section>
 
       <!-- 
         - #CONTACT
