@@ -1,0 +1,1929 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- 
+    - primary meta tags
+  -->
+  <title>Mohan | Portfolio</title>
+  <meta name="title" content="Mohan - Front-End Developer & Problem Solver">
+  <meta name="description" content="Personal portfolio of Mohan showcasing projects and skills in web development">
+
+  <!-- 
+    - favicon
+  -->
+  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+
+  <!-- 
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&display=swap" rel="stylesheet">
+
+  <!-- 
+    - custom css link
+  -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+  <!-- 
+    - preload images
+  -->
+  <link rel="preload" as="image" href="./assets/images/hero-banner.jpg">
+  <link rel="preload" as="image" href="./assets/images/Blog.svg">
+  <style>
+    .project-card .card-banner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .project-card-1 .card-banner { max-width: 650px; }
+    .project-card-2 .card-banner { max-width: 600px; }
+    .project-card-3 .card-banner { max-width: 600px; }
+    .project-card-4 .card-banner { max-width: 620px; }
+
+    .project-card .card-banner {
+      height: 370px;
+      overflow: hidden; 
+      border-radius: 12px;
+    }
+
+    .project-card-1 .card-banner img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        transform: scale(0.95);
+        transition: transform 0.3s ease;
+    }
+
+    .project-card-1 .card-banner {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--card-bg);  /* Changed from #f8f5fb to match dark theme */
+    }
+
+    .project-card-1 .card-banner:hover img {
+        transform: scale(1);
+    }
+
+    .project-card-1 .card-banner {
+        max-width: 650px;
+        height: 500px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+        padding: 20px;
+        box-sizing: border-box;
+       
+    }
+
+    .project-card-1 .card-banner img {
+        max-width: 100%;
+        max-height: 100%;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        object-position: center;
+        margin-bottom : 10px
+    }
+
+    .grid-list {
+        display: grid;
+        gap: 30px;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    .about-card {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        padding: 30px;
+        background-color: var(--bg-secondary);
+        min-height: 450px;
+        gap: 15px; /* Added to control spacing between elements */
+    }
+
+    .about-card .card-icon {
+        margin-bottom: 0; /* Changed from 20px */
+    }
+
+    .about-card .card-title {
+        margin-bottom: 0; /* Changed from 15px */
+        min-height: auto; /* Changed from 50px */
+        display: flex;
+        align-items: center;
+    }
+
+    .about-card .card-text {
+        flex-grow: 1;
+        line-height: 1.6; /* Reduced from 1.8 */
+        text-align: justify;
+        margin: 0;
+        display: block; /* Changed from -webkit-box */
+        overflow: auto; /* Changed from hidden */
+        -webkit-line-clamp: unset; /* Removed line clamping */
+        color: var(--text-primary); /* Changed from var(--text-secondary) */
+        font-weight: 500; /* Added for better visibility */
+        opacity: 0.95; /* Added for better contrast */
+        letter-spacing: 0.3px; /* Added for better readability */
+    }
+
+    .about-card .card-title {
+        margin-bottom: 0;
+        min-height: auto;
+        display: flex;
+        align-items: center;
+        color: var(--text-primary);
+        font-weight: 700;
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+        background: var(--gradient-1);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .leetcode-icon {
+        width: 24px;
+        height: 24px;
+        fill: currentColor;
+    }
+
+    .social-list {
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .social-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .social-link ion-icon,
+    .social-link .leetcode-icon {
+        width: 24px;
+        height: 24px;
+        font-size: 24px;
+    }
+
+    .social-link:hover {
+        color: var(--accent);
+        transform: scale(1.1);
+        transition: all 0.3s ease;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    .logo h2 {
+        font-size: 2.2rem;
+        font-weight: 800;
+        background: linear-gradient(45deg, #3f78e0, #7cb798);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        transition: all 0.3s ease;
+    }
+
+    .logo h2:hover {
+        transform: scale(1.05);
+        background: linear-gradient(45deg, #7cb798, #3f78e0);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    /* Enhanced visual styles */
+    .section-title {
+        background: linear-gradient(45deg, #333, #666);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: 700;
+    }
+
+    .btn {
+        transition: transform 0.3s ease;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    }
+
+    .card-banner {
+        box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        transition: all 0.3s ease;
+        opacity: 1 !important;  /* Make containers always visible */
+        transform: translateY(0) !important;  /* Prevent transform on load */
+        border: 1px solid rgba(0,0,0,0.1);
+    }
+
+    .project-card {
+        opacity: 1 !important;  /* Make project cards always visible */
+        transform: none !important;  /* Prevent transform effects */
+        border: 1px solid rgba(0,0,0,0.1);
+        border-radius: 12px;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    }
+
+    .project-card:hover {
+        transform: translateY(-5px) !important;
+        box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+    }
+
+    .project-card .card-content {
+        opacity: 1 !important;  /* Make content always visible */
+        transform: none !important;  /* Prevent transform effects */
+    }
+
+    .project-card .card-banner img {
+        opacity: 1 !important;  /* Make images always visible */
+        transform: none !important;  /* Prevent transform effects */
+    }
+
+    .card-banner:hover {
+        box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+        transform: translateY(-5px);
+    }
+
+    .about-card {
+        transition: all 0.3s ease;
+        position: relative;
+        z-index: 1;
+        overflow: hidden;
+    }
+
+    .about-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: var(--gradient-1);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: -1;
+    }
+
+    .about-card:hover::before {
+        opacity: 0.1;
+    }
+
+    .about-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(79, 70, 229, 0.3);
+        border-color: rgba(79, 70, 229, 0.3);
+    }
+
+    .about-card:hover .card-title {
+        background: var(--gradient-1);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .success-message {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: linear-gradient(45deg, #3f78e0, #7cb798);
+        color: white;
+        padding: 15px 25px;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        transform: translateX(200%);
+        transition: transform 0.3s ease;
+        z-index: 1000;
+    }
+
+    .success-message.show {
+        transform: translateX(0);
+    }
+
+    .hero-banner {
+        position: relative;
+        max-width: 450px;
+        margin: 0 auto;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 4px solid transparent;
+        background: 
+            linear-gradient(#fff, #fff) padding-box,
+            linear-gradient(45deg, #3f78e0, #7cb798) border-box;
+        box-shadow: 
+            0 15px 35px rgba(0,0,0,0.2),
+            0 0 15px rgba(63,120,224,0.1);
+    }
+
+    .hero-banner::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+            45deg,
+            rgba(63,120,224,0.15),
+            rgba(124,183,152,0.15)
+        );
+        z-index: 1;
+    }
+
+    .hero-banner img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: brightness(1.1) contrast(1.1);
+        transition: transform 0.5s ease;
+    }
+
+    .hero-banner:hover img {
+        transform: scale(1.05);
+    }
+
+    .navbar-link {
+        font-size: 1.5rem;  /* Increased from 1.2rem */
+        font-weight: 700;   /* Increased from 600 */
+        letter-spacing: 1px;
+        text-transform: uppercase;
+    }
+
+    .social-link ion-icon,
+    .social-link .leetcode-icon {
+        width: 32px;  /* Increased from 24px */
+        height: 32px;  /* Increased from 24px */
+        font-size: 32px;  /* Increased from 24px */
+    }
+
+    .social-list {
+        gap: 2.5rem;  /* Increased spacing between icons */
+    }
+
+    /* Make sure LeetCode icon matches other icons */
+    .leetcode-icon {
+        width: 32px;  /* Increased from 24px */
+        height: 32px;  /* Increased from 24px */
+        fill: currentColor;
+    }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 1271px) {
+        .hero-content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .hero-banner {
+            max-width: 400px;
+            margin-bottom: 30px;
+        }
+
+        .btn-wrapper {
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .about-card {
+            min-height: auto;
+            padding: 20px;
+        }
+
+        .project-card {
+            flex-direction: column;
+            padding: 20px;
+            background-color: inherit !important;
+        }
+
+        .project-card .card-content {
+            padding: 15px;
+            width: 100%;
+            order: 1;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .project-card .card-banner {
+            display: block; /* Show images in mobile view */
+            width: 100%;
+            height: 300px;
+            margin: 20px 0;
+            order: 2;
+        }
+
+        .project-card-1,
+        .project-card-2,
+        .project-card-3,
+        .project-card-4 {
+            margin-bottom: 30px;
+        }
+
+        .project-card .card-text {
+            margin: 15px 0;
+            line-height: 1.6;
+        }
+
+        .project-card .card-banner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .grid-list {
+            gap: 30px;
+            grid-template-columns: 1fr;
+        }
+
+        .contact-card {
+            padding: 20px;
+        }
+
+        .input-wrapper {
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .navbar-link {
+            font-size: 1.2rem;
+            padding: 8px 15px;
+        }
+
+        .social-list {
+            gap: 1.5rem;
+        }
+
+        .logo h2 {
+            font-size: 1.8rem;
+        }
+    }
+
+    @media (max-width: 785px) {
+        .hero-title {
+            font-size: 1.8rem;
+        }
+
+        .section-title {
+            font-size: 1.6rem;
+        }
+
+        .btn {
+            padding: 8px 20px;
+            font-size: 0.9rem;
+        }
+
+        .project-card .card-banner {
+            height: 250px;
+        }
+
+        .hero-banner {
+            max-width: 300px;
+        }
+
+        .about-card {
+            padding: 15px;
+        }
+
+        .project-card {
+            padding: 15px;
+        }
+
+        .navbar-link {
+            font-size: 1rem;
+        }
+
+        .logo h2 {
+            font-size: 1.5rem;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .hero-content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .hero-banner {
+            max-width: 300px;
+            margin-bottom: 30px;
+        }
+
+        .btn-wrapper {
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .about-card {
+            min-height: auto;
+            padding: 20px;
+        }
+
+        .project-card {
+            flex-direction: column;
+            padding: 20px;
+            background-color: inherit !important;
+        }
+
+        .project-card .card-content {
+            padding: 15px;
+            width: 100%;
+            order: 1;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .project-card .card-banner {
+            display: none; /* Hide images in mobile view */
+        }
+
+        .project-card-1,
+        .project-card-2,
+        .project-card-3,
+        .project-card-4 {
+            margin-bottom: 30px;
+        }
+
+        .project-card .card-text {
+            margin: 15px 0;
+            line-height: 1.6;
+        }
+
+        .project-card .card-content,
+        .project-card .card-banner {
+            width: 100%;
+            max-width: 100%;
+        }
+
+        .project-card .card-content {
+            padding: 10px;
+            order: 1;
+        }
+
+        .project-card .card-banner {
+            height: 250px;
+            margin: 0;
+            order: 2;
+            width: 100%;
+            height: auto;
+            min-height: 200px;
+        }
+
+        .project-card .card-banner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            aspect-ratio: 16/9;
+        }
+
+        .project-card-1 .card-banner,
+        .project-card-2 .card-banner,
+        .project-card-3 .card-banner,
+        .project-card-4 .card-banner {
+            max-width: 100%;
+            height: auto;
+            min-height: 200px;
+            padding: 0;
+        }
+
+        .grid-list {
+            gap: 40px;
+        }
+
+        .contact-card {
+            padding: 20px;
+        }
+
+        .input-wrapper {
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .navbar-link {
+            font-size: 1.2rem;
+            padding: 8px 15px;
+        }
+
+        .social-list {
+            gap: 1.5rem;
+        }
+
+        .logo img {
+            max-width: 120px;
+        }
+
+        .project-card .card-content {
+          background-color: var(--card-bg) !important;
+        }
+
+        .project-card .h3.card-title {
+          color: var(--text-primary);
+          font-weight: 700;
+          font-size: 1.6rem;
+          background: var(--gradient-1);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+
+        .project-card .card-tag {
+          color: var(--text-primary) !important;
+        }
+
+        .project-card .card-text {
+          color: var(--text-secondary) !important;
+        }
+
+        .about-card .card-text {
+            color: var(--text-primary);
+            opacity: 0.95;
+            font-size: 1rem;
+        }
+        
+        .about-card .card-title {
+            font-size: 1.3rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .hero-title {
+            font-size: 2rem;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+        }
+
+        .btn {
+            padding: 8px 20px;
+            font-size: 0.9rem;
+        }
+
+        .project-card .card-banner {
+            height: 200px;
+        }
+
+        .project-card {
+            padding: 10px;
+        }
+
+        .project-card .card-banner {
+            min-height: 180px;
+        }
+    }
+
+    /* Add new media query for 420px */
+    @media (max-width: 420px) {
+        .hero-title {
+            font-size: 1.6rem;
+        }
+
+        .section-title {
+            font-size: 1.4rem;
+        }
+
+        .btn {
+            padding: 6px 15px;
+            font-size: 0.85rem;
+        }
+
+        .project-card {
+            padding: 10px;
+        }
+
+        .project-card .card-banner {
+            display: block; /* Keep images visible */
+            height: 200px;
+            margin: 15px 0;
+        }
+
+        .project-card .card-content {
+            padding: 10px;
+        }
+
+        .project-card .card-title {
+            font-size: 1.2rem;
+        }
+
+        .project-card .card-text {
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .hero-banner {
+            max-width: 250px;
+        }
+
+        .about-card {
+            padding: 12px;
+        }
+
+        .contact-card {
+            padding: 15px;
+        }
+
+        .input-field {
+            padding: 8px;
+            font-size: 0.9rem;
+        }
+
+        .navbar-link {
+            font-size: 0.9rem;
+        }
+
+        .logo h2 {
+            font-size: 1.3rem;
+        }
+    }
+
+    /* Fix for navbar logo in mobile view */
+    .navbar-top .logo h2 {
+        font-size: 2.2rem;
+        font-weight: 800;
+        background: linear-gradient(45deg, #3f78e0, #7cb798);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+
+    /* Add these CSS variables at the top of your style section */
+    :root {
+      --bg-primary: #0a0a0a;
+      --bg-secondary: #111111;
+      --text-primary: #ffffff;
+      --text-secondary: #b3b3b3;
+      --accent: #4f46e5;
+      --accent-dark: #4338ca;
+      --card-bg: #1a1a1a;
+      --gradient-1: linear-gradient(45deg, #4f46e5, #06b6d4);
+      --gradient-2: linear-gradient(45deg, #3b82f6, #10b981);
+      --shadow: 0 0 20px rgba(79, 70, 229, 0.15);
+    }
+
+    /* Update existing styles */
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+    }
+
+    .logo h2 {
+      background: var(--gradient-1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .navbar-link:hover {
+      color: var(--accent);
+      transform: translateY(-2px);
+      transition: all 0.3s ease;
+    }
+
+    .about-card {
+      background-color: var(--card-bg);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: var(--shadow);
+    }
+
+    .project-card {
+      background-color: var(--card-bg) !important;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: var(--shadow);
+    }
+
+    .card-text {
+      color: var(--text-secondary);
+    }
+
+    .btn-primary {
+      background: var(--gradient-1);
+      border: none;
+      box-shadow: 0 4px 15px rgba(79, 70, 229, 0.3);
+    }
+
+    .btn-secondary {
+      background: var(--gradient-2);
+      border: none;
+      box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+    }
+
+    .hero-banner {
+      border: 4px solid transparent;
+      background: 
+        linear-gradient(var(--bg-primary), var(--bg-primary)) padding-box,
+        var(--gradient-1) border-box;
+      box-shadow: var(--shadow);
+    }
+
+    .progress {
+      background-color: var(--card-bg);
+    }
+
+    .progress-fill {
+      background: var(--gradient-1) !important;
+    }
+
+    .contact-card {
+      background-color: var(--card-bg);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: var(--shadow);
+    }
+
+    .input-field {
+      background-color: var(--bg-secondary);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--text-primary);
+    }
+
+    .social-link:hover {
+      color: var(--accent);
+      transform: translateY(-3px) scale(1.1);
+      filter: drop-shadow(0 0 10px var(--accent));
+    }
+
+    /* Add animation effects */
+    .hero-banner img {
+      transition: transform 0.5s ease, filter 0.5s ease;
+    }
+
+    .hero-banner:hover img {
+      transform: scale(1.05);
+      filter: brightness(1.1);
+    }
+
+    .project-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(79, 70, 229, 0.2);
+    }
+
+    /* Update success message */
+    .success-message {
+      background: var(--gradient-1);
+    }
+
+    /* Update scrollbar */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--bg-secondary);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--gradient-1);
+      border-radius: 5px;
+    }
+
+    /* Glowing effect for important elements */
+    .section-title {
+      background: var(--gradient-1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 100px;
+      height: 3px;
+      background: var(--gradient-1);
+      border-radius: 3px;
+    }
+
+    /* Dark theme header updates */
+    .header {
+      background-color: var(--bg-primary);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .navbar {
+      background-color: var(--bg-primary);
+    }
+
+    .navbar-top {
+      background-color: var(--bg-primary);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .navbar-list {
+      background-color: var(--bg-primary);
+    }
+
+    .navbar-link {
+      color: var(--text-primary);
+    }
+
+    .nav-open-btn ion-icon,
+    .nav-close-btn ion-icon {
+      color: var(--text-primary);
+    }
+
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .hero {
+      background-color: var(--bg-primary);
+    }
+
+    .hero-content {
+      color: var(--text-primary);
+    }
+
+    .hero-title {
+      background: var(--gradient-1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 700;
+    }
+
+    .section-text {
+      color: var(--text-secondary);
+    }
+
+    /* Update mobile navbar */
+    @media (max-width: 768px) {
+      .navbar {
+        background-color: var(--bg-secondary);
+        box-shadow: var(--shadow);
+      }
+
+      .navbar-top {
+        background-color: var(--bg-secondary);
+      }
+    }
+
+    .achievements-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .achievement-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+
+    .achievement-card {
+      background: var(--card-bg);
+      border-radius: 15px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      height: 100%;
+      display: flex; /* Added */
+      flex-direction: column; /* Added */
+    }
+
+    .achievement-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(79, 70, 229, 0.2);
+    }
+
+    .achievement-banner {
+      width: 100%;
+      height: auto; /* Changed from fixed height */
+      overflow: hidden;
+      aspect-ratio: 16/9; /* Added to maintain consistent image ratio */
+      position: relative; /* Added for better image control */
+    }
+
+    .achievement-banner img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain; /* Changed from cover to contain */
+      transition: transform 0.3s ease;
+      padding: 10px; /* Added padding to prevent edge touching */
+      background-color: var(--card-bg); /* Match card background */
+    }
+
+    .achievement-card:hover .achievement-banner img {
+      transform: scale(1.1);
+    }
+
+    .achievement-content {
+      padding: 1.5rem;
+      flex-grow: 1; /* Added to maintain consistent card heights */
+    }
+
+    .achievement-content .card-title {
+      color: var(--text-primary);
+      margin-bottom: 1rem;
+      font-size: 1.25rem;
+    }
+
+    .achievement-text {
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+      .achievement-row {
+        grid-template-columns: 1fr;
+      }
+      
+      .achievement-banner {
+        height: 200px;
+      }
+    }
+
+    /* Update the achievements grid styles */
+    .achievements-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+      margin-top: 3rem;
+    }
+
+    .achievement-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .achievement-card {
+      background: var(--card-bg);
+      border-radius: 15px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      height: 100%;
+    }
+
+    .achievement-banner {
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
+    }
+
+    .achievement-banner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .achievement-content {
+      padding: 1.5rem;
+    }
+
+    /* Mobile responsiveness */
+    @media (max-width: 992px) {
+      .achievement-row {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .achievement-row {
+        grid-template-columns: 1fr;
+      }
+      
+      .achievement-banner {
+        height: 200px;
+      }
+    }
+
+    .project-card .h3.card-title {
+      color: var(--text-primary);
+      font-weight: 700;
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      background: var(--gradient-1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .project-card .card-tag {
+      color: var(--text-primary) !important;
+      font-weight: 600;
+      opacity: 0.9;
+    }
+
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .tech-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1rem;
+      background: var(--card-bg);
+      border-radius: 12px;
+      transition: all 0.3s ease;
+    }
+
+    .tech-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(79, 70, 229, 0.3);
+    }
+
+    .tech-item img {
+      width: 50px;
+      height: 50px;
+      object-fit: contain;
+    }
+
+    .tech-item span {
+      color: var(--text-primary);
+      font-weight: 500;
+    }
+
+    @media (max-width: 768px) {
+      .tech-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .tech-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+   
+  </style>
+
+</head>
+
+<body>
+
+  <!-- 
+    - #HEADER
+  -->
+
+  <header class="header" data-header>
+    <div class="container">
+
+      <a href="#" class="logo">
+        <h2>MohanRaja</h2>
+      </a>
+
+      <nav class="navbar" data-navbar>
+
+        <div class="navbar-top">
+          <a href="#" class="logo">
+            <h2>MohanRaja</h2>
+          </a>
+
+          <button class="nav-close-btn" aria-label="close menu" data-nav-toggler>
+            <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
+          </button>
+        </div>
+
+        <ul class="navbar-list">
+
+          <li>
+            <a href="#top" class="navbar-link">Home</a>
+          </li>
+
+          <li>
+            <a href="#about" class="navbar-link">About</a>
+          </li>
+
+          <li>
+            <a href="#projects" class="navbar-link">Projects</a>
+          </li>
+
+          <li>
+            <a href="#achievements" class="navbar-link">Achievements</a>
+          </li>
+
+          <li>
+            <a href="#contact" class="navbar-link">Contact</a>
+          </li>
+
+        </ul>
+
+
+        <ul class="social-list">
+
+          <li>
+            <a href="http://www.linkedin.com/in/%20mohanraja-tech" target="_blank" class="social-link">
+              <ion-icon name="logo-linkedin"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://github.com/MohanRaja-tech" target="_blank" class="social-link">
+              <ion-icon name="logo-github"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://leetcode.com/u/Mohan_06/" target="_blank" class="social-link">
+              <svg class="leetcode-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.83 5.83 0 0 0 .349 1.017 5.938 5.938 0 0 0 1.271 1.818l4.277 4.193.039.038c2.248 2.165 5.852 2.133 8.063-.074l2.396-2.392c.54-.54.54-1.414.003-1.955a1.378 1.378 0 0 0-1.951-.003l-2.396 2.392a3.021 3.021 0 0 1-4.205.038l-.02-.019-4.276-4.193c-.652-.64-.972-1.469-.948-2.263a2.68 2.68 0 0 1 .066-.523 2.545 2.545 0 0 1 .619-1.164L9.13 8.114c1.058-1.134 3.204-1.27 4.43-.278l3.501 2.831c.593.48 1.461.387 1.94-.207a1.384 1.384 0 0 0-.207-1.943l-3.5-2.831c-.8-.647-1.766-1.045-2.774-1.202l2.015-2.158A1.384 1.384 0 0 0 13.483 0zm-2.866 12.815a1.38 1.38 0 0 0-1.38 1.382 1.38 1.38 0 0 0 1.38 1.382H20.79a1.38 1.38 0 0 0 1.38-1.382 1.38 1.38 0 0 0-1.38-1.382z"/>
+              </svg>
+            </a>
+          </li>
+
+        </ul>
+
+      </nav>
+
+      <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
+        <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
+      </button>
+
+      <div class="overlay" data-nav-toggler data-overlay></div>
+
+    </div>
+  </header>
+
+
+
+
+
+  <main>
+    <article>
+
+      <!-- 
+        - #HERO
+      -->
+
+      <section class="section hero" aria-label="home">
+        <div class="container">
+
+          <figure class="hero-banner">
+            <img src="./assets/images/hero-banner.jpg" width="560" height="540" alt="Mohan" class="w-100"
+              data-reveal="top">
+
+           
+          </figure>
+
+          <div class="hero-content">
+
+            <div style="display: flex; justify-content: center; margin-bottom: 1rem;">
+              <span style="background: linear-gradient(45deg, #4f46e5, #06b6d4); color: #fff; font-weight: 700; padding: 0.5rem 1.2rem; border-radius: 20px; font-size: 1.1rem; box-shadow: 0 2px 8px rgba(79,70,229,0.15); letter-spacing: 1px;">Freelance Web Developer at Kongu Engineering College</span>
+            </div>
+
+            <h1 class="h1 hero-title" data-reveal="top" data-reveal-delay="0.5s">
+              I'm MohanRaja , an Aspiring Front-End Developer.
+            </h1>
+
+            <p class="section-text" data-reveal="top" data-reveal-delay="0.75s">
+              I am Mohan, currently pursuing my Bachelor's degree in Information Technology at Kongu Engineering College, with a CGPA of 8.0. I have successfully completed my Higher Secondary Education at Kongu Kalvi Nilayam, securing 90%.
+            </p>
+
+            <div class="btn-wrapper" data-reveal="top" data-reveal-delay="1s">
+              <a href="#" class="btn btn-primary">Download CV</a>
+
+              <a href="https://wa.me/+919003948329" target="_blank" class="btn btn-secondary">Contact Me</a>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- LeetCode & GeeksforGeeks Dashboard Row -->
+      <section class="section dashboard-row" aria-label="coding-profiles">
+        <div class="container">
+          <h2 class="h2 section-title" style="text-align:center; margin-bottom:2rem;">Coding Profiles & Stats</h2>
+          <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 4.5rem; align-items: stretch;">
+            <!-- LeetCode Dashboard -->
+            <a href="https://leetcode.com/u/Mohan_06/" target="_blank" style="flex:1; min-width:320px; max-width:700px; display:flex; flex-direction:column; align-items:center; background:var(--card-bg); border-radius:16px; box-shadow:var(--shadow); padding:2rem; text-decoration:none;">
+              <img src="./assets/images/leetcode-dashboard-placeholder.png" alt="LeetCode Dashboard" style="width:100%; max-width:600px; border-radius:12px; margin-bottom:1.5rem; object-fit:contain; background:#fff;" loading="lazy">
+              <div style="color:var(--text-primary); font-weight:600; font-size:1.2rem; text-align:center;">LeetCode Dashboard</div>
+              <div style="color:var(--text-secondary); font-size:1rem; text-align:center; margin-top:0.5rem;">@Mohan_06</div>
+            </a>
+            <!-- GeeksforGeeks Dashboard -->
+            <a href="https://www.geeksforgeeks.org/user/mohandxzl/" target="_blank" style="flex:1; min-width:320px; max-width:700px; display:flex; flex-direction:column; align-items:center; background:var(--card-bg); border-radius:16px; box-shadow:var(--shadow); padding:2rem; text-decoration:none;">
+              <img src="./assets/images/gfg-dashboard-placeholder.png" alt="GeeksforGeeks Dashboard" style="width:100%; max-width:600px; border-radius:12px; margin-bottom:1.5rem; object-fit:contain; background:#fff;" loading="lazy">
+              <div style="color:var(--text-primary); font-weight:600; font-size:1.2rem; text-align:center;">GeeksforGeeks Dashboard</div>
+              <div style="color:var(--text-secondary); font-size:1rem; text-align:center; margin-top:0.5rem;">@mohandxzl</div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #ABOUT
+      -->
+
+      <section class="section about" aria-label="about" id="about">
+        <div class="container">
+
+          <div class="wrapper">
+
+            <div data-reveal="left">
+              <h2 class="h2 section-title">What I Do?</h2>
+
+              <p class="section-text">
+                As a Developer, I solve competitive problems and build projects that address real-time challenges.
+I am passionate about crafting efficient, scalable solutions through clean code and innovative thinking.
+Continuously learning and adapting, I strive to contribute to impactful technologies that make a difference.
+              </p>
+            </div>
+
+            <div data-reveal="right">
+              <h2 class="h2 section-title">Technologies</h2>
+              <div class="tech-grid">
+                <div class="tech-item">
+                  <img src="./assets/images/java-vertical.svg" alt="Java">
+                  <span>Java</span>
+                </div>
+                <div class="tech-item">
+                  <img src="./assets/images/python-svgrepo-com.svg" alt="Python">
+                  <span>Python</span>
+                </div>
+                <div class="tech-item">
+                  <img src="./assets/images/html-5-svgrepo-com.svg" alt="JavaScript">
+                  <span>HTML</span>
+                </div>
+                <div class="tech-item">
+                  <img src="./assets/images/css-3-svgrepo-com.svg" alt="React">
+                  <span>CSS</span>
+                </div>
+                <div class="tech-item">
+                  <img src="./assets/images/javascript-logo-svgrepo-com.svg" alt="HTML5">
+                  <span>Javascript</span>
+                </div>
+                <div class="tech-item">
+                  <img src="./assets/images/react-svgrepo-com.svg" alt="CSS3">
+                  <span>React</span>
+                </div>
+                <div class="tech-item">
+                  <img src="./assets/images/nodejs-logo-svgrepo-com.svg" alt="Node.js">
+                  <span>Node JS</span>
+                </div>
+                <div class="tech-item">
+                  <img src="./assets/images/mysql-logo-svgrepo-com.svg" alt="MySQL">
+                  <span>MySQL</span>
+                </div>
+                <div class="tech-item">
+                  <img src="./assets/images/git-icon-logo-svgrepo-com.svg" alt="Git">
+                  <span>Git</span>
+                </div>
+                <div class="tech-item">
+                  <img src="./assets/images/mongodb-svgrepo-com.svg" alt="MongoDB">
+                  <span>MongoDB</span>
+                </div>
+                <div class="tech-item">
+                  <img src="./assets/images/opencv-svgrepo-com.svg" alt="Bootstrap">
+                  <span>Open CV</span>
+                </div>
+                <div class="tech-item">
+                  <img src="./assets/images/langchain.svg" alt="Tailwind">
+                  <span>Langchain</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <ul class="grid-list">
+              <li data-reveal="bottom">
+                <div class="about-card">
+                  <div class="card-icon">
+                    <img src="./assets/images/icon-1.svg" width="52" height="52" loading="lazy" alt="web design icon">
+                  </div>
+                  <h3 class="h4 card-title">Problem Solving</h3>
+                  <p class="card-text">
+                    As a dedicated problem solver, I've mastered data structures and algorithms through extensive practice on platforms like LeetCode and HackerRank. With Java as my primary language, I've successfully solved over 350 challenging problems, demonstrating strong analytical thinking and optimization skills. My consistent practice and deep understanding of algorithmic concepts helped do develop Solutions.
+                  </p>
+                </div>
+              </li>
+
+              <li data-reveal="bottom" data-reveal-delay="0.25s">
+                <div class="about-card">
+                  <div class="card-icon">
+                    <img src="./assets/images/icon-2.svg" width="52" height="52" loading="lazy" alt="mobile design icon">
+                  </div>
+                  <h3 class="h4 card-title">Web Development</h3>
+                  <p class="card-text">
+                    As a passionate front-end developer, I specialize in creating responsive and intuitive web applications using modern technologies. My expertise spans HTML, CSS, JavaScript, and React, enabling me to build seamless user experiences. I focus on implementing best practices in web development, ensuring high-performance, accessible, and visually appealing interfaces that engage users effectively.
+                  </p>
+                </div>
+              </li>
+
+              <li data-reveal="bottom" data-reveal-delay="0.5s">
+                <div class="about-card">
+                  <div class="card-icon">
+                    <img src="./assets/images/icon-3.svg" width="52" height="52" loading="lazy" alt="web development icon">
+                  </div>
+                  <h3 class="h4 card-title">Real World Solutions</h3>
+                  <p class="card-text">
+                    Leveraging Python and machine learning, I develop practical solutions for real-world challenges. My focus is on creating automated systems and data-driven applications that solve business problems efficiently. Through innovative approaches and technical expertise, I've successfully implemented scalable solutions that streamline processes and enhance operational effectiveness.
+                  </p>
+                </div>
+              </li>
+
+              <li data-reveal="bottom" data-reveal-delay="0.75s">
+                <div class="about-card">
+                  <div class="card-icon">
+                    <img src="./assets/images/icon-4.svg" width="52" height="52" loading="lazy" alt="web seo icon">
+                  </div>
+                  <h3 class="h4 card-title">Achievements</h3>
+                  <p class="card-text">
+                    Throughout my academic journey, I've excelled in numerous technical competitions and hackathons, showcasing innovative problem-solving abilities. With over fifteen accolades in various events, I've demonstrated consistent performance in competitive programming and project development. These achievements reflect my commitment to technical excellence and collaborative innovation.
+                  </p>
+                </div>
+              </li>
+            </ul>
+
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #PROJECT
+      -->
+
+      <section class="section project" aria-labelledby="project-label" id="projects">
+        <div class="container">
+
+          <div class="title-wrapper" data-reveal="top">
+
+            <div>
+              <h2 class="h2 section-title" id="project-label">Latest Projects</h2>
+
+              <p class="section-text">
+                Check out some of my latest projects with creative ideas.
+              </p>
+            </div>
+
+            
+
+          </div>
+
+          <ul class="grid-list">
+
+            <li>
+              <div class="project-card project-card-1" style="background-color: var(--card-bg)">
+
+                <div class="card-content" data-reveal="left">
+
+                  <p class="card-tag" style="color: #a07cc5">Cyber Security</p>
+
+                  <h3 class="h3 card-title">Facial Intruder Alert System</h3>
+
+                  <p class="card-text">
+                    The Facial Intruder Alert System is a cybersecurity-powered security solution that continuously monitors personal devices using real-time facial recognition.
+It detects unauthorized access attempts and issues immediate alerts through pop-ups, phone calls, and email notifications.
+The system can lock the device, track multiple faces, and respond to suspicious behavior such as camera obstruction.
+Designed to operate independently of OS-level security, it offers robust protection in shared or public environments.                  </p>
+
+                </div>
+
+                <figure class="card-banner" data-reveal="right">
+                  <img src="./assets/images/project-1.jpg" width="650" height="370" loading="lazy" alt="Web Design"
+                    class="w-100 project-1">
+                </figure>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="project-card project-card-2" style="background-color: var(--card-bg)">
+
+                <div class="card-content" data-reveal="right">
+
+                  <p class=" card-tag" style="color: #3f78e0">RAG (Retrieval Augmented Generation)</p>
+
+                  <h3 class="h3 card-title">RAG AI</h3>
+
+                  <p class="card-text">
+                    RAG AI is an intelligent, retrieval-augmented system that ingests content from uploaded PDFs or website links and delivers accurate, context-aware answers based on user queries.
+                    It combines document-based search with generative AI capabilities to ensure high relevance and precision in responses.
+                    Users can switch to a general AI chat mode for open-ended conversations, similar to ChatGPT functionality.
+                    Designed for flexibility and efficiency, RAG AI enhances knowledge access and delivers dynamic, real-time insights.
+                  </p>
+
+                </div>
+
+                <figure class="card-banner" data-reveal="left">
+                  <img src="./assets/images/project-2.jpg" width="600" height="367" loading="lazy" alt="Web Design"
+                    class=" w-100 project-2">
+                </figure>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="project-card project-card-3" style="background-color: var(--card-bg)">
+
+                <div class="card-content" data-reveal="left">
+
+                  <p class=" card-tag" style="color: #7cb798">Machine Learning</p>
+
+                  <h3 class="h3 card-title">AI powered Vulnerability Scanner</h3>
+
+                  <p class="card-text">
+                    The AI-powered Vulnerability Scanner is an intelligent security analysis system that combines pattern-based techniques with machine learning to detect complex and context-specific code flaws. It performs static code analysis using methods like regex matching, AST parsing, and control flow inspection for comprehensive vulnerability detection. Machine learning models enhance accuracy by classifying threats and reducing false positives. Designed for seamless integration into development workflows, the system offers automated remediation, detailed risk reports, and real-time feedback to strengthen software security throughout the development lifecycle.                                            
+                  </p>
+
+                </div>
+
+                <figure class="card-banner" data-reveal="right">
+                  <img src="./assets/images/project-3.jpg" width="600" height="367" loading="lazy" alt="Web Design"
+                    class=" w-100 project-3">
+                </figure>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="project-card project-card-4" style="background-color: var(--card-bg)">
+
+                <div class="card-content" data-reveal="left">
+
+                  <p class=" card-tag" style="color: #d16b86">Full stack Development</p>
+
+                  <h3 class="h3 card-title">Flexi-Commerce</h3>
+
+                  <p class="card-text">
+                    FlexiCommerce is a dynamic e-commerce platform that empowers clients to build and manage their own custom online stores with zero coding skills.
+                    Through a user-friendly admin interface, users can fully personalize their website's design, images, and content in real time.
+                    The platform allows seamless addition and management of categories, products, and multimedia assets with no predefined limits.
+                    Its flexible architecture supports infinite scalability based on user needs and business growth.
+                    Designed for simplicity and power, FlexiCommerce enables anyone to launch a professional, customized online store effortlessly.
+                  </p>
+
+                </div>
+
+                <figure class="card-banner" data-reveal="right">
+                  <img src="./assets/images/project-4.jpg" width="620" height="370" loading="lazy" alt="Mobile Design"
+                    class="w-100 project-4">
+                </figure>
+
+              </div>
+            </li>
+
+          </ul>
+
+        </div>
+      </section>
+
+      <!-- 
+        - #ACHIEVEMENTS
+      -->
+      <section class="section achievements" aria-labelledby="achievements-label" id="achievements">
+        <div class="container">
+          <div class="title-wrapper" data-reveal="top">
+            <div>
+              <h2 class="h2 section-title" id="achievements-label">Achievements</h2>
+              <p class="section-text">
+                Notable recognitions and accomplishments in my journey.
+              </p>
+            </div>
+          </div>
+
+          <div class="achievements-grid">
+            <!-- Row 1 -->
+            <div class="achievement-row">
+              <div class="achievement-card" data-reveal="left">
+                <figure class="achievement-banner">
+                  <img src="./assets/images/Codeathon 24 prize.jpg" alt="Codeathon">
+                </figure>
+                <div class="achievement-content">
+                  <h3 class="h4 card-title">Codeathon Winner</h3>
+                  <p class="achievement-text">
+                    Secured Second Place in the Coding Event Conducted by the Coding club of Information Technology Department.
+                  </p>
+                </div>
+              </div>
+
+              <div class="achievement-card" data-reveal="left">
+                <figure class="achievement-banner">
+                  <img src="./assets/images/Eshwar Hackathon.jpg" alt="Hackathon">
+                </figure>
+                <div class="achievement-content">
+                  <h3 class="h4 card-title">24-HRS Hackathon</h3>
+                  <p class="achievement-text">
+                    Secured Runner Up position in the 24 hrs Hackathon and Honured with Tech titans Award.
+                  </p>
+                </div>
+              </div>
+
+              <div class="achievement-card" data-reveal="right">
+                <figure class="achievement-banner">
+                  <img src="./assets/images/Prototype expo 2025.jpg" alt="Prototype Expo">
+                </figure>
+                <div class="achievement-content">
+                  <h3 class="h4 card-title">Software Prototype Expo</h3>
+                  <p class="achievement-text">
+                    Secured First place in the Prototype Expo Evaluated By Industry Experts.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Row 2 -->
+            <div class="achievement-row">
+              <div class="achievement-card" data-reveal="left">
+                <figure class="achievement-banner">
+                  <img src="./assets/images/Ruby year 2025.jpg" alt="Ruby Year">
+                </figure>
+                <div class="achievement-content">
+                  <h3 class="h4 card-title">Ruby Year Prototype Expo 2025</h3>
+                  <p class="achievement-text">
+                    Secured Second position in the Project Expo Evaluated By Startups.
+                  </p>
+                </div>
+              </div>
+
+              <div class="achievement-card" data-reveal="left">
+                <figure class="achievement-banner">
+                  <img src="./assets/images/csd Technical presentation.jpg" alt="Technical Presentation">
+                </figure>
+                <div class="achievement-content">
+                  <h3 class="h4 card-title">Technical Presentation</h3>
+                  <p class="achievement-text">
+                    Secured First Prize in the Technical Presentation Conducted By the CSD Department.
+                  </p>
+                </div>
+              </div>
+
+              <div class="achievement-card" data-reveal="right">
+                <figure class="achievement-banner">
+                  <img src="./assets/images/sign in expo.jpg" alt="SignIn Expo">
+                </figure>
+                <div class="achievement-content">
+                  <h3 class="h4 card-title">SignIn Project Expo</h3>
+                  <p class="achievement-text">
+                    Secured Second prize in SignIn project exhibition for the innovative solution.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- New Third Row -->
+            <div class="achievement-row">
+              <div class="achievement-card" data-reveal="left">
+                <figure class="achievement-banner">
+                  <img src="./assets/images/IT Inception 24 paper.jpg" alt="Achievement 7">
+                </figure>
+                <div class="achievement-content">
+                  <h3 class="h4 card-title">Paper Presentation</h3>
+                  <p class="achievement-text">
+                   Secured First prize in the Paper presentation conducted by IT Association.
+                  </p>
+                </div>
+              </div>
+
+              <div class="achievement-card" data-reveal="left">
+                <figure class="achievement-banner">
+                  <img src="./assets/images/mark us Hackathon.jpg" alt="Achievement 8">
+                </figure>
+                <div class="achievement-content">
+                  <h3 class="h4 card-title">1 Day Hackathon</h3>
+                  <p class="achievement-text">
+                    Secured first Prize in the 1 Day Hackathon Conducted By CT-UG Department.
+                  </p>
+                </div>
+              </div>
+
+              <div class="achievement-card" data-reveal="right">
+                <figure class="achievement-banner">
+                  <img src="./assets/images/SNS Project.jpg" alt="Achievement 9">
+                </figure>
+                <div class="achievement-content">
+                  <h3 class="h4 card-title">Prototype Presentation</h3>
+                  <p class="achievement-text">
+                    Secured Second Position in the Prototype expo in SNS College of Technology.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- New Fourth Row -->
+            <div class="achievement-row">
+              <div class="achievement-card" data-reveal="left">
+                <figure class="achievement-banner">
+                  <img src="./assets/images/Nandha paper.jpg" alt="Achievement 10">
+                </figure>
+                <div class="achievement-content">
+                  <h3 class="h4 card-title">Paper Presentation</h3>
+                  <p class="achievement-text">
+                    Secured First Prize in the Paper presentation in Nandha Engineering College.
+                  </p>
+                </div>
+              </div>
+
+              <div class="achievement-card" data-reveal="left">
+                <figure class="achievement-banner">
+                  <img src="./assets/images/JJ prize.jpg" alt="Achievement 11">
+                </figure>
+                <div class="achievement-content">
+                  <h3 class="h4 card-title">Project Presentation</h3>
+                  <p class="achievement-text">
+                    Secured First Prize in the Project presentation in JJ College.
+                  </p>
+                </div>
+              </div>
+
+              <div class="achievement-card" data-reveal="right">
+                <figure class="achievement-banner">
+                  <img src="./assets/images/JJ paper.jpg" alt="Achievement 12">
+                </figure>
+                <div class="achievement-content">
+                  <h3 class="h4 card-title">Technical Presentation</h3>
+                  <p class="achievement-text">
+                    Secured First prize in the Technical Presentation Conducted by JJ College.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- New Fifth Row - Commented out -->
+            <!--
+            <div class="achievement-row">
+              <div class="achievement-card" data-reveal="left">
+                <figure class="achievement-banner">
+                  <img src="./assets/images/achievement-13.jpg" alt="Achievement 13">
+                </figure>
+                <div class="achievement-content">
+                  <h3 class="h4 card-title">Cloud Project</h3>
+                  <p class="achievement-text">
+                    Excellence in cloud computing implementation.
+                  </p>
+                </div>
+              </div>
+
+              <div class="achievement-card" data-reveal="left">
+                <figure class="achievement-banner">
+                  <img src="./assets/images/achievement-14.jpg" alt="Achievement 14">
+                </figure>
+                <div class="achievement-content">
+                  <h3 class="h4 card-title">Security Award</h3>
+                  <p class="achievement-text">
+                    Recognition for cybersecurity innovation.
+                  </p>
+                </div>
+              </div>
+
+              <div class="achievement-card" data-reveal="right">
+                <figure class="achievement-banner">
+                  <img src="./assets/images/achievement-15.jpg" alt="Achievement 15">
+                </figure>
+                <div class="achievement-content">
+                  <h3 class="h4 card-title">UI/UX Design</h3>
+                  <p class="achievement-text">
+                    Best user interface design award.
+                  </p>
+                </div>
+              </div>
+            </div>
+            -->
+
+          </div>
+        </div>
+      </section>
+
+      <!-- 
+        - #CONTACT
+      -->
+
+      <section class="section contact" aria-label="contact" id="contact">
+        <div class="container">
+
+          <div class="contact-card">
+
+            <div class="contact-content" data-reveal="left">
+
+              <div class="card-icon">
+                <img src="./assets/images/icon-5.svg" width="44" height="44" loading="lazy" alt="envelop icon">
+              </div>
+
+              <h2 class="h2 section-title">If you like what you see, let's work together.</h2>
+
+              <p class="section-text">
+                I bring rapid solutions to make the life of my clients easier. Have any questions? Reach out to me from
+                this contact form and I will get back to you shortly.
+              </p>
+
+            </div>
+
+            <form action="" class="contact-form" data-reveal="right">
+
+              <div class="input-wrapper">
+                <input type="text" name="name" placeholder="Name *" required class="input-field">
+
+                <input type="email" name="email_address" placeholder="Email *" required class="input-field">
+              </div>
+
+              <textarea name="message" placeholder="Message *" required class="input-field"></textarea>
+
+              <button type="submit" class="btn btn-secondary">Send message</button>
+
+            </form>
+
+          </div>
+
+        </div>
+      </section>
+
+    </article>
+  </main>
+
+  <div class="success-message" id="successMessage">Message sent successfully! 🎉</div>
+
+  <!-- 
+    - #FOOTER
+  -->
+
+  <footer class="footer">
+    <div class="container">
+
+      <p class="copyright">
+        © 2025 mohandeveloper. All rights reserved.
+      </p>
+
+      <ul class="social-list">
+
+        <li>
+          <a href="http://www.linkedin.com/in/%20mohanraja-tech" target="_blank" class="social-link">
+            <ion-icon name="logo-linkedin"></ion-icon>
+          </a>
+        </li>
+
+        <li>
+          <a href="https://github.com/MohanRaja-tech" target="_blank" class="social-link">
+            <ion-icon name="logo-github"></ion-icon>
+          </a>
+        </li>
+
+        <li>
+          <a href="https://leetcode.com/u/Mohan_06/" target="_blank" class="social-link">
+            <svg class="leetcode-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.83 5.83 0 0 0 .349 1.017 5.938 5.938 0 0 0 1.271 1.818l4.277 4.193.039.038c2.248 2.165 5.852 2.133 8.063-.074l2.396-2.392c.54-.54.54-1.414.003-1.955a1.378 1.378 0 0 0-1.951-.003l-2.396 2.392a3.021 3.021 0 0 1-4.205.038l-.02-.019-4.276-4.193c-.652-.64-.972-1.469-.948-2.263a2.68 2.68 0 0 1 .066-.523 2.545 2.545 0 0 1 .619-1.164L9.13 8.114c1.058-1.134 3.204-1.27 4.43-.278l3.501 2.831c.593.48 1.461.387 1.94-.207a1.384 1.384 0 0 0-.207-1.943l-3.5-2.831c-.8-.647-1.766-1.045-2.774-1.202l2.015-2.158A1.384 1.384 0 0 0 13.483 0zm-2.866 12.815a1.38 1.38 0 0 0-1.38 1.382 1.38 1.38 0 0 0 1.38 1.382H20.79a1.38 1.38 0 0 0 1.38-1.382 1.38 1.38 0 0 0-1.38-1.382z"/>
+            </svg>
+          </a>
+        </li>
+
+      </ul>
+
+    </div>
+  </footer>
+
+
+
+
+
+  <!-- 
+    - custom js link
+  -->
+  <script src="./assets/js/script.js"></script>
+
+  <script>
+    document.querySelector('.contact-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const successMessage = document.getElementById('successMessage');
+        successMessage.classList.add('show');
+        
+        // Reset form
+        this.reset();
+        
+        // Hide message after 3 seconds
+        setTimeout(() => {
+            successMessage.classList.remove('show');
+        }, 3000);
+    });
+  </script>
+
+  <!-- 
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>
