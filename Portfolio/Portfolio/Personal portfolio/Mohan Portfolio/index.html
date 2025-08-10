@@ -1,0 +1,3285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- 
+    - primary meta tags
+  -->
+  <title>Mohan | Portfolio</title>
+  <meta name="title" content="Mohan - Front-End Developer & Problem Solver">
+  <meta name="description" content="Personal portfolio of Mohan showcasing projects and skills in web development">
+
+  <!-- 
+    - favicon
+  -->
+  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+
+  <!-- 
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&display=swap" rel="stylesheet">
+
+  <!-- 
+    - custom css link
+  -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+  <!--
+    - preload images
+  -->
+  <link rel="preload" as="image" href="./assets/images/mohanprofile.jpg">
+  <link rel="preload" as="image" href="./assets/images/Blog.svg">
+  <style>
+    /* Override external CSS and ensure consistent project card layout */
+    .project .grid-list {
+        display: grid !important;
+        gap: 30px !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        align-items: stretch !important;
+        width: 100% !important;
+    }
+
+    /* Override specific responsive behavior from external CSS */
+    @media (min-width: 992px) {
+        .project .grid-list {
+            grid-template-columns: repeat(2, 1fr) !important;
+            row-gap: 30px !important;
+        }
+        
+        .project .grid-list > li:nth-child(-n+2) {
+            grid-column: unset !important;
+        }
+        
+        .project-card-1,
+        .project-card-2 {
+            flex-direction: column !important;
+            align-items: stretch !important;
+        }
+        
+        :is(.project-card-1, .project-card-2) .card-content {
+            width: 100% !important;
+            order: unset !important;
+        }
+        
+        :is(.project-card-1, .project-card-2) .card-banner {
+            width: 100% !important;
+        }
+    }
+
+    /* Ensure all project cards have consistent styling */
+    .project-card,
+    .project-card-1,
+    .project-card-2,
+    .project-card-3,
+    .project-card-4,
+    .project-card-5,
+    .project-card-6,
+    .project-card-7,
+    .project-card-8,
+    .project-card-9,
+    .project-card-10,
+    .project-card-11,
+    .project-card-12,
+    .project-card-13 {
+        display: flex !important;
+        flex-direction: column !important;
+        height: 650px !important;
+        width: 100% !important;
+        opacity: 1 !important;
+        transform: none !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        border-radius: 16px !important;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.1) !important;
+        overflow: hidden !important;
+        transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+        background: var(--card-bg) !important;
+        gap: 0 !important;
+        padding: 0 !important;
+    }
+
+    .project-card:hover,
+    .project-card-1:hover,
+    .project-card-2:hover,
+    .project-card-3:hover,
+    .project-card-4:hover,
+    .project-card-5:hover,
+    .project-card-6:hover,
+    .project-card-7:hover,
+    .project-card-8:hover,
+    .project-card-9:hover,
+    .project-card-10:hover,
+    .project-card-11:hover,
+    .project-card-12:hover,
+    .project-card-13:hover {
+        transform: translateY(-10px) !important;
+        box-shadow: 0 20px 40px rgba(79, 70, 229, 0.2) !important;
+    }
+
+    /* Card content styling */
+    .project-card .card-content,
+    .project-card-1 .card-content,
+    .project-card-2 .card-content,
+    .project-card-3 .card-content,
+    .project-card-4 .card-content,
+    .project-card-5 .card-content,
+    .project-card-6 .card-content,
+    .project-card-7 .card-content,
+    .project-card-8 .card-content,
+    .project-card-9 .card-content,
+    .project-card-10 .card-content,
+    .project-card-11 .card-content,
+    .project-card-12 .card-content,
+    .project-card-13 .card-content {
+        flex: 1 !important;
+        padding: 25px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 15px !important;
+        opacity: 1 !important;
+        transform: none !important;
+        justify-content: flex-start !important;
+        min-height: 0 !important;
+        width: 100% !important;
+        order: unset !important;
+        padding-block-end: 25px !important;
+    }
+
+    /* Card banner (image) styling */
+    .project-card .card-banner,
+    .project-card-1 .card-banner,
+    .project-card-2 .card-banner,
+    .project-card-3 .card-banner,
+    .project-card-4 .card-banner,
+    .project-card-5 .card-banner,
+    .project-card-6 .card-banner,
+    .project-card-7 .card-banner,
+    .project-card-8 .card-banner,
+    .project-card-9 .card-banner,
+    .project-card-10 .card-banner,
+    .project-card-11 .card-banner,
+    .project-card-12 .card-banner,
+    .project-card-13 .card-banner {
+        height: 280px !important;
+        overflow: hidden !important;
+        flex-shrink: 0 !important;
+        width: 100% !important;
+        border-radius: 0 !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        display: block !important;
+        justify-content: unset !important;
+        align-items: unset !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .project-card .card-banner img,
+    .project-card-1 .card-banner img,
+    .project-card-2 .card-banner img,
+    .project-card-3 .card-banner img,
+    .project-card-4 .card-banner img,
+    .project-card-5 .card-banner img,
+    .project-card-6 .card-banner img,
+    .project-card-7 .card-banner img,
+    .project-card-8 .card-banner img,
+    .project-card-9 .card-banner img,
+    .project-card-10 .card-banner img,
+    .project-card-11 .card-banner img,
+    .project-card-12 .card-banner img,
+    .project-card-13 .card-banner img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        object-position: center !important;
+        opacity: 1 !important;
+        transform: none !important;
+        transition: transform 0.3s ease !important;
+        max-width: 100% !important;
+        max-height: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        scale: unset !important;
+    }
+
+    .project-card:hover .card-banner img,
+    .project-card-1:hover .card-banner img,
+    .project-card-2:hover .card-banner img,
+    .project-card-3:hover .card-banner img,
+    .project-card-4:hover .card-banner img,
+    .project-card-5:hover .card-banner img,
+    .project-card-6:hover .card-banner img,
+    .project-card-7:hover .card-banner img,
+    .project-card-8:hover .card-banner img,
+    .project-card-9:hover .card-banner img,
+    .project-card-10:hover .card-banner img,
+    .project-card-11:hover .card-banner img,
+    .project-card-12:hover .card-banner img,
+    .project-card-13:hover .card-banner img {
+        transform: scale(1.05) !important;
+    }
+
+    /* Text styling with larger fonts */
+    .project-card .card-tag,
+    .project-card-1 .card-tag,
+    .project-card-2 .card-tag,
+    .project-card-3 .card-tag,
+    .project-card-4 .card-tag,
+    .project-card-5 .card-tag,
+    .project-card-6 .card-tag,
+    .project-card-7 .card-tag,
+    .project-card-8 .card-tag,
+    .project-card-9 .card-tag,
+    .project-card-10 .card-tag,
+    .project-card-11 .card-tag,
+    .project-card-12 .card-tag,
+    .project-card-13 .card-tag {
+        font-size: 1.1rem !important;
+        font-weight: 600 !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.5px !important;
+        margin-bottom: 10px !important;
+        opacity: 1 !important;
+    }
+
+    .project-card .h3.card-title,
+    .project-card-1 .h3.card-title,
+    .project-card-2 .h3.card-title,
+    .project-card-3 .h3.card-title,
+    .project-card-4 .h3.card-title,
+    .project-card-5 .h3.card-title,
+    .project-card-6 .h3.card-title,
+    .project-card-7 .h3.card-title,
+    .project-card-8 .h3.card-title,
+    .project-card-9 .h3.card-title,
+    .project-card-10 .h3.card-title,
+    .project-card-11 .h3.card-title,
+    .project-card-12 .h3.card-title,
+    .project-card-13 .h3.card-title {
+        color: var(--text-primary) !important;
+        font-weight: 700 !important;
+        font-size: 1.6rem !important;
+        margin: 10px 0 15px 0 !important;
+        background: var(--gradient-1) !important;
+        -webkit-background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
+        line-height: 1.3 !important;
+        opacity: 1 !important;
+    }
+
+    .project-card .card-text,
+    .project-card-1 .card-text,
+    .project-card-2 .card-text,
+    .project-card-3 .card-text,
+    .project-card-4 .card-text,
+    .project-card-5 .card-text,
+    .project-card-6 .card-text,
+    .project-card-7 .card-text,
+    .project-card-8 .card-text,
+    .project-card-9 .card-text,
+    .project-card-10 .card-text,
+    .project-card-11 .card-text,
+    .project-card-12 .card-text,
+    .project-card-13 .card-text {
+        color: var(--text-secondary) !important;
+        line-height: 1.6 !important;
+        font-size: 1.1rem !important;
+        flex-grow: 1 !important;
+        display: -webkit-box !important;
+        -webkit-line-clamp: 4 !important;
+        -webkit-box-orient: vertical !important;
+        overflow: hidden !important;
+        text-align: justify !important;
+        margin-bottom: 10px !important;
+        opacity: 1 !important;
+        margin-block-end: 10px !important;
+    }
+
+    .project-card .card-banner {
+      height: 370px;
+      overflow: hidden; 
+      border-radius: 12px;
+    }
+
+
+
+    .grid-list {
+        display: grid;
+        gap: 30px;
+        grid-template-columns: repeat(2, 1fr);
+        align-items: stretch;
+        width: 100%;
+    }
+
+    .project-card {
+        display: flex;
+        flex-direction: column;
+        height: 650px;
+        width: 100%;
+        opacity: 1 !important;
+        transform: none !important;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 16px;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        background: var(--card-bg);
+    }
+
+    /* Ensure all project cards follow the same layout */
+    .project-card-1,
+    .project-card-2,
+    .project-card-3,
+    .project-card-4,
+    .project-card-5,
+    .project-card-6,
+    .project-card-7,
+    .project-card-8,
+    .project-card-9,
+    .project-card-10,
+    .project-card-11,
+    .project-card-12,
+    .project-card-13 {
+        display: flex;
+        flex-direction: column;
+        height: 650px;
+        width: 100%;
+    }
+
+    .project-card:hover {
+        transform: translateY(-10px) !important;
+        box-shadow: 0 20px 40px rgba(79, 70, 229, 0.2);
+    }
+
+    .project-card .card-content {
+        flex: 1;
+        padding: 25px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        opacity: 1 !important;
+        transform: none !important;
+        justify-content: flex-start;
+        min-height: 0;
+    }
+
+    .project-card .card-tag {
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 0;
+        opacity: 1 !important;
+    }
+
+    .project-card .h3.card-title {
+        color: var(--text-primary);
+        font-weight: 700;
+        font-size: 1.4rem;
+        margin: 10px 0 15px 0;
+        background: var(--gradient-1);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        line-height: 1.3;
+        opacity: 1 !important;
+    }
+
+    .project-card .card-text {
+        color: var(--text-secondary);
+        line-height: 1.6;
+        font-size: 0.95rem;
+        flex-grow: 1;
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-align: justify;
+        margin-bottom: 10px;
+        opacity: 1 !important;
+    }
+
+    .project-card .card-banner,
+    .project-card-1 .card-banner,
+    .project-card-2 .card-banner,
+    .project-card-3 .card-banner,
+    .project-card-4 .card-banner,
+    .project-card-5 .card-banner,
+    .project-card-6 .card-banner,
+    .project-card-7 .card-banner,
+    .project-card-8 .card-banner,
+    .project-card-9 .card-banner,
+    .project-card-10 .card-banner,
+    .project-card-11 .card-banner,
+    .project-card-12 .card-banner,
+    .project-card-13 .card-banner {
+        height: 280px;
+        overflow: hidden;
+        flex-shrink: 0;
+        width: 100%;
+    }
+
+    .project-card .card-banner img,
+    .project-card-1 .card-banner img,
+    .project-card-2 .card-banner img,
+    .project-card-3 .card-banner img,
+    .project-card-4 .card-banner img,
+    .project-card-5 .card-banner img,
+    .project-card-6 .card-banner img,
+    .project-card-7 .card-banner img,
+    .project-card-8 .card-banner img,
+    .project-card-9 .card-banner img,
+    .project-card-10 .card-banner img,
+    .project-card-11 .card-banner img,
+    .project-card-12 .card-banner img,
+    .project-card-13 .card-banner img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain !important;
+        object-position: center;
+        opacity: 1 !important;
+        transform: none !important;
+        transition: transform 0.3s ease;
+        background-color: var(--card-bg);
+        padding: 10px;
+    }
+
+    .project-card:hover .card-banner img,
+    .project-card-1:hover .card-banner img,
+    .project-card-2:hover .card-banner img,
+    .project-card-3:hover .card-banner img,
+    .project-card-4:hover .card-banner img,
+    .project-card-5:hover .card-banner img,
+    .project-card-6:hover .card-banner img,
+    .project-card-7:hover .card-banner img,
+    .project-card-8:hover .card-banner img,
+    .project-card-9:hover .card-banner img,
+    .project-card-10:hover .card-banner img,
+    .project-card-11:hover .card-banner img,
+    .project-card-12:hover .card-banner img,
+    .project-card-13:hover .card-banner img {
+        transform: scale(1.05);
+    }
+
+    .project-card .card-tag {
+        font-size: 1.2rem !important;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 0;
+    }
+
+    .project-card .h3.card-title {
+        color: var(--text-primary);
+        font-weight: 700;
+        font-size: 1.8rem !important;
+        margin: 10px 0 15px 0;
+        background: var(--gradient-1);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        line-height: 1.3;
+    }
+
+    .project-card .card-text {
+        color: var(--text-secondary);
+        line-height: 1.6;
+        font-size: 1.15rem !important;
+        flex-grow: 1;
+        display: -webkit-box;
+        -webkit-line-clamp: 5;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-align: justify;
+        margin-bottom: 10px;
+    }
+
+    .about-card {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        padding: 30px;
+        background-color: var(--bg-secondary);
+        min-height: 450px;
+        gap: 15px; /* Added to control spacing between elements */
+    }
+
+    .about-card .card-icon {
+        margin-bottom: 0; /* Changed from 20px */
+    }
+
+    .about-card .card-title {
+        margin-bottom: 0; /* Changed from 15px */
+        min-height: auto; /* Changed from 50px */
+        display: flex;
+        align-items: center;
+    }
+
+    .about-card .card-text {
+        flex-grow: 1;
+        line-height: 1.6; /* Reduced from 1.8 */
+        text-align: justify;
+        margin: 0;
+        display: block; /* Changed from -webkit-box */
+        overflow: auto; /* Changed from hidden */
+        -webkit-line-clamp: unset; /* Removed line clamping */
+        color: var(--text-primary); /* Changed from var(--text-secondary) */
+        font-weight: 500; /* Added for better visibility */
+        opacity: 0.95; /* Added for better contrast */
+        letter-spacing: 0.3px; /* Added for better readability */
+    }
+
+    .about-card .card-title {
+        margin-bottom: 0;
+        min-height: auto;
+        display: flex;
+        align-items: center;
+        color: var(--text-primary);
+        font-weight: 700;
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+        background: var(--gradient-1);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .leetcode-icon {
+        width: 24px;
+        height: 24px;
+        fill: currentColor;
+    }
+
+    .social-list {
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .social-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .social-link ion-icon,
+    .social-link .leetcode-icon {
+        width: 24px;
+        height: 24px;
+        font-size: 24px;
+    }
+
+    .social-link:hover {
+        color: var(--accent);
+        transform: scale(1.1);
+        transition: all 0.3s ease;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    .logo h2 {
+        font-size: 2.2rem;
+        font-weight: 800;
+        background: linear-gradient(45deg, #3f78e0, #7cb798);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        transition: all 0.3s ease;
+    }
+
+    .logo h2:hover {
+        transform: scale(1.05);
+        background: linear-gradient(45deg, #7cb798, #3f78e0);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    /* Enhanced visual styles */
+    .section-title {
+        background: linear-gradient(45deg, #333, #666);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: 700;
+    }
+
+    .btn {
+        transition: transform 0.3s ease;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    }
+
+    .card-banner {
+        box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        transition: all 0.3s ease;
+        opacity: 1 !important;  /* Make containers always visible */
+        transform: translateY(0) !important;  /* Prevent transform on load */
+        border: 1px solid rgba(0,0,0,0.1);
+    }
+
+    .project-card {
+        opacity: 1 !important;  /* Make project cards always visible */
+        transform: none !important;  /* Prevent transform effects */
+        border: 1px solid rgba(0,0,0,0.1);
+        border-radius: 12px;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    }
+
+    .project-card:hover {
+        transform: translateY(-5px) !important;
+        box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+    }
+
+    .project-card .card-content {
+        opacity: 1 !important;  /* Make content always visible */
+        transform: none !important;  /* Prevent transform effects */
+    }
+
+    .project-card .card-banner img {
+        opacity: 1 !important;  /* Make images always visible */
+        transform: none !important;  /* Prevent transform effects */
+    }
+
+    .card-banner:hover {
+        box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+        transform: translateY(-5px);
+    }
+
+    .about-card {
+        transition: all 0.3s ease;
+        position: relative;
+        z-index: 1;
+        overflow: hidden;
+    }
+
+    .about-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: var(--gradient-1);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: -1;
+    }
+
+    .about-card:hover::before {
+        opacity: 0.1;
+    }
+
+    .about-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(79, 70, 229, 0.3);
+        border-color: rgba(79, 70, 229, 0.3);
+    }
+
+    .about-card:hover .card-title {
+        background: var(--gradient-1);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .success-message {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: linear-gradient(45deg, #3f78e0, #7cb798);
+        color: white;
+        padding: 15px 25px;
+        border-radius: 12px;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        transform: translateX(120%);
+        transition: transform 0.4s ease;
+        z-index: 1000;
+        max-width: 350px;
+        font-weight: 500;
+        border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .success-message.show {
+        transform: translateX(0);
+    }
+
+    .hero-banner {
+        position: relative;
+        max-width: 450px;
+        width: 450px;
+        height: 450px;
+        margin: 0 auto;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 4px solid transparent;
+        background: 
+            linear-gradient(transparent, transparent) padding-box,
+            linear-gradient(45deg, #3f78e0, #7cb798) border-box;
+        box-shadow: 
+            0 15px 35px rgba(0,0,0,0.2),
+            0 0 15px rgba(63,120,224,0.1);
+    }
+
+    .hero-banner::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: transparent;
+        z-index: 1;
+        pointer-events: none;
+        border-radius: 50%;
+    }
+
+    .hero-banner img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center top;
+        filter: brightness(1.05) contrast(1.05);
+        transition: transform 0.5s ease;
+        border-radius: 50%;
+    }
+
+    .hero-banner:hover img {
+        transform: scale(1.02);
+    }
+
+    .navbar-link {
+        font-size: 1.5rem;  /* Increased from 1.2rem */
+        font-weight: 700;   /* Increased from 600 */
+        letter-spacing: 1px;
+        text-transform: uppercase;
+    }
+
+    .social-link ion-icon,
+    .social-link .leetcode-icon {
+        width: 32px;  /* Increased from 24px */
+        height: 32px;  /* Increased from 24px */
+        font-size: 32px;  /* Increased from 24px */
+    }
+
+    .social-list {
+        gap: 2.5rem;  /* Increased spacing between icons */
+    }
+
+    /* Make sure LeetCode icon matches other icons */
+    .leetcode-icon {
+        width: 32px;  /* Increased from 24px */
+        height: 32px;  /* Increased from 24px */
+        fill: currentColor;
+    }
+
+    /* Mobile Responsiveness with 2 cards per row where possible */
+    @media (max-width: 1271px) {
+        .hero-content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .hero-banner {
+            max-width: 400px;
+            margin-bottom: 30px;
+        }
+
+        .btn-wrapper {
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .about-card {
+            min-height: auto;
+            padding: 20px;
+        }
+
+        .project .grid-list {
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 25px !important;
+        }
+
+        .project-card,
+        .project-card-1,
+        .project-card-2,
+        .project-card-3,
+        .project-card-4,
+        .project-card-5,
+        .project-card-6,
+        .project-card-7,
+        .project-card-8,
+        .project-card-9,
+        .project-card-10,
+        .project-card-11,
+        .project-card-12,
+        .project-card-13 {
+            height: 600px !important;
+        }
+
+        .project-card .card-banner,
+        .project-card-1 .card-banner,
+        .project-card-2 .card-banner,
+        .project-card-3 .card-banner,
+        .project-card-4 .card-banner,
+        .project-card-5 .card-banner,
+        .project-card-6 .card-banner,
+        .project-card-7 .card-banner,
+        .project-card-8 .card-banner,
+        .project-card-9 .card-banner,
+        .project-card-10 .card-banner,
+        .project-card-11 .card-banner,
+        .project-card-12 .card-banner,
+        .project-card-13 .card-banner {
+            height: 250px !important;
+        }
+
+        .project-card .card-content,
+        .project-card-1 .card-content,
+        .project-card-2 .card-content,
+        .project-card-3 .card-content,
+        .project-card-4 .card-content,
+        .project-card-5 .card-content,
+        .project-card-6 .card-content,
+        .project-card-7 .card-content,
+        .project-card-8 .card-content,
+        .project-card-9 .card-content,
+        .project-card-10 .card-content,
+        .project-card-11 .card-content,
+        .project-card-12 .card-content,
+        .project-card-13 .card-content {
+            padding: 20px !important;
+        }
+
+        .project-card .h3.card-title,
+        .project-card-1 .h3.card-title,
+        .project-card-2 .h3.card-title,
+        .project-card-3 .h3.card-title,
+        .project-card-4 .h3.card-title,
+        .project-card-5 .h3.card-title,
+        .project-card-6 .h3.card-title,
+        .project-card-7 .h3.card-title,
+        .project-card-8 .h3.card-title,
+        .project-card-9 .h3.card-title,
+        .project-card-10 .h3.card-title,
+        .project-card-11 .h3.card-title,
+        .project-card-12 .h3.card-title,
+        .project-card-13 .h3.card-title {
+            font-size: 1.6rem !important;
+        }
+
+        .project-card .card-text,
+        .project-card-1 .card-text,
+        .project-card-2 .card-text,
+        .project-card-3 .card-text,
+        .project-card-4 .card-text,
+        .project-card-5 .card-text,
+        .project-card-6 .card-text,
+        .project-card-7 .card-text,
+        .project-card-8 .card-text,
+        .project-card-9 .card-text,
+        .project-card-10 .card-text,
+        .project-card-11 .card-text,
+        .project-card-12 .card-text,
+        .project-card-13 .card-text {
+            font-size: 1.1rem !important;
+            -webkit-line-clamp: 4 !important;
+        }
+
+        .project-card .card-tag,
+        .project-card-1 .card-tag,
+        .project-card-2 .card-tag,
+        .project-card-3 .card-tag,
+        .project-card-4 .card-tag,
+        .project-card-5 .card-tag,
+        .project-card-6 .card-tag,
+        .project-card-7 .card-tag,
+        .project-card-8 .card-tag,
+        .project-card-9 .card-tag,
+        .project-card-10 .card-tag,
+        .project-card-11 .card-tag,
+        .project-card-12 .card-tag,
+        .project-card-13 .card-tag {
+            font-size: 1.15rem !important;
+        }
+
+        .contact-card {
+            padding: 20px;
+        }
+
+        .input-wrapper {
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .navbar-link {
+            font-size: 1.2rem;
+            padding: 8px 15px;
+        }
+
+        .social-list {
+            gap: 1.5rem;
+        }
+
+        .logo h2 {
+            font-size: 1.8rem;
+        }
+    }
+
+    @media (max-width: 785px) {
+        .hero-title {
+            font-size: 1.8rem;
+        }
+
+        .section-title {
+            font-size: 1.6rem;
+        }
+
+        .btn {
+            padding: 8px 20px;
+            font-size: 0.9rem;
+        }
+
+        .project .grid-list {
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 20px !important;
+        }
+
+        .project-card,
+        .project-card-1,
+        .project-card-2,
+        .project-card-3,
+        .project-card-4,
+        .project-card-5,
+        .project-card-6,
+        .project-card-7,
+        .project-card-8,
+        .project-card-9,
+        .project-card-10,
+        .project-card-11,
+        .project-card-12,
+        .project-card-13 {
+            height: 550px !important;
+        }
+
+        .project-card .card-banner,
+        .project-card-1 .card-banner,
+        .project-card-2 .card-banner,
+        .project-card-3 .card-banner,
+        .project-card-4 .card-banner,
+        .project-card-5 .card-banner,
+        .project-card-6 .card-banner,
+        .project-card-7 .card-banner,
+        .project-card-8 .card-banner,
+        .project-card-9 .card-banner,
+        .project-card-10 .card-banner,
+        .project-card-11 .card-banner,
+        .project-card-12 .card-banner,
+        .project-card-13 .card-banner {
+            height: 220px !important;
+        }
+
+        .project-card .card-content,
+        .project-card-1 .card-content,
+        .project-card-2 .card-content,
+        .project-card-3 .card-content,
+        .project-card-4 .card-content,
+        .project-card-5 .card-content,
+        .project-card-6 .card-content,
+        .project-card-7 .card-content,
+        .project-card-8 .card-content,
+        .project-card-9 .card-content,
+        .project-card-10 .card-content,
+        .project-card-11 .card-content,
+        .project-card-12 .card-content,
+        .project-card-13 .card-content {
+            padding: 18px !important;
+        }
+
+        .project-card .h3.card-title,
+        .project-card-1 .h3.card-title,
+        .project-card-2 .h3.card-title,
+        .project-card-3 .h3.card-title,
+        .project-card-4 .h3.card-title,
+        .project-card-5 .h3.card-title,
+        .project-card-6 .h3.card-title,
+        .project-card-7 .h3.card-title,
+        .project-card-8 .h3.card-title,
+        .project-card-9 .h3.card-title,
+        .project-card-10 .h3.card-title,
+        .project-card-11 .h3.card-title,
+        .project-card-12 .h3.card-title,
+        .project-card-13 .h3.card-title {
+            font-size: 1.5rem !important;
+        }
+
+        .project-card .card-text,
+        .project-card-1 .card-text,
+        .project-card-2 .card-text,
+        .project-card-3 .card-text,
+        .project-card-4 .card-text,
+        .project-card-5 .card-text,
+        .project-card-6 .card-text,
+        .project-card-7 .card-text,
+        .project-card-8 .card-text,
+        .project-card-9 .card-text,
+        .project-card-10 .card-text,
+        .project-card-11 .card-text,
+        .project-card-12 .card-text,
+        .project-card-13 .card-text {
+            font-size: 1.05rem !important;
+            -webkit-line-clamp: 4 !important;
+        }
+
+        .project-card .card-tag,
+        .project-card-1 .card-tag,
+        .project-card-2 .card-tag,
+        .project-card-3 .card-tag,
+        .project-card-4 .card-tag,
+        .project-card-5 .card-tag,
+        .project-card-6 .card-tag,
+        .project-card-7 .card-tag,
+        .project-card-8 .card-tag,
+        .project-card-9 .card-tag,
+        .project-card-10 .card-tag,
+        .project-card-11 .card-tag,
+        .project-card-12 .card-tag,
+        .project-card-13 .card-tag {
+            font-size: 1.1rem !important;
+        }
+
+        .hero-banner {
+            max-width: 300px;
+            width: 300px;
+            height: 300px;
+        }
+
+        .about-card {
+            padding: 15px;
+        }
+
+        .navbar-link {
+            font-size: 1rem;
+        }
+
+        .logo h2 {
+            font-size: 1.5rem;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .hero-content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .hero-banner {
+            max-width: 300px;
+            margin-bottom: 30px;
+        }
+
+        .btn-wrapper {
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .about-card {
+            min-height: auto;
+            padding: 20px;
+        }
+
+        .project .grid-list {
+            grid-template-columns: 1fr !important;
+            gap: 25px !important;
+        }
+
+        .project-card,
+        .project-card-1,
+        .project-card-2,
+        .project-card-3,
+        .project-card-4,
+        .project-card-5,
+        .project-card-6,
+        .project-card-7,
+        .project-card-8,
+        .project-card-9,
+        .project-card-10,
+        .project-card-11,
+        .project-card-12,
+        .project-card-13 {
+            height: 500px !important;
+        }
+
+        .project-card .card-banner,
+        .project-card-1 .card-banner,
+        .project-card-2 .card-banner,
+        .project-card-3 .card-banner,
+        .project-card-4 .card-banner,
+        .project-card-5 .card-banner,
+        .project-card-6 .card-banner,
+        .project-card-7 .card-banner,
+        .project-card-8 .card-banner,
+        .project-card-9 .card-banner,
+        .project-card-10 .card-banner,
+        .project-card-11 .card-banner,
+        .project-card-12 .card-banner,
+        .project-card-13 .card-banner {
+            height: 200px !important;
+        }
+
+        .project-card .card-content,
+        .project-card-1 .card-content,
+        .project-card-2 .card-content,
+        .project-card-3 .card-content,
+        .project-card-4 .card-content,
+        .project-card-5 .card-content,
+        .project-card-6 .card-content,
+        .project-card-7 .card-content,
+        .project-card-8 .card-content,
+        .project-card-9 .card-content,
+        .project-card-10 .card-content,
+        .project-card-11 .card-content,
+        .project-card-12 .card-content,
+        .project-card-13 .card-content {
+            padding: 20px !important;
+            background-color: var(--card-bg) !important;
+        }
+
+        .project-card .h3.card-title,
+        .project-card-1 .h3.card-title,
+        .project-card-2 .h3.card-title,
+        .project-card-3 .h3.card-title,
+        .project-card-4 .h3.card-title,
+        .project-card-5 .h3.card-title,
+        .project-card-6 .h3.card-title,
+        .project-card-7 .h3.card-title,
+        .project-card-8 .h3.card-title,
+        .project-card-9 .h3.card-title,
+        .project-card-10 .h3.card-title,
+        .project-card-11 .h3.card-title,
+        .project-card-12 .h3.card-title,
+        .project-card-13 .h3.card-title {
+            color: var(--text-primary) !important;
+            font-weight: 700 !important;
+            font-size: 1.4rem !important;
+            background: var(--gradient-1) !important;
+            -webkit-background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+        }
+
+        .project-card .card-tag,
+        .project-card-1 .card-tag,
+        .project-card-2 .card-tag,
+        .project-card-3 .card-tag,
+        .project-card-4 .card-tag,
+        .project-card-5 .card-tag,
+        .project-card-6 .card-tag,
+        .project-card-7 .card-tag,
+        .project-card-8 .card-tag,
+        .project-card-9 .card-tag,
+        .project-card-10 .card-tag,
+        .project-card-11 .card-tag,
+        .project-card-12 .card-tag,
+        .project-card-13 .card-tag {
+            color: var(--text-primary) !important;
+        }
+
+        .project-card .card-text,
+        .project-card-1 .card-text,
+        .project-card-2 .card-text,
+        .project-card-3 .card-text,
+        .project-card-4 .card-text,
+        .project-card-5 .card-text,
+        .project-card-6 .card-text,
+        .project-card-7 .card-text,
+        .project-card-8 .card-text,
+        .project-card-9 .card-text,
+        .project-card-10 .card-text,
+        .project-card-11 .card-text,
+        .project-card-12 .card-text,
+        .project-card-13 .card-text {
+            color: var(--text-secondary) !important;
+            font-size: 1rem !important;
+            -webkit-line-clamp: 4 !important;
+        }
+
+        .contact-card {
+            padding: 20px;
+        }
+
+        .input-wrapper {
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .navbar-link {
+            font-size: 1.2rem;
+            padding: 8px 15px;
+        }
+
+        .social-list {
+            gap: 1.5rem;
+        }
+
+        .logo img {
+            max-width: 120px;
+        }
+
+        .about-card .card-text {
+            color: var(--text-primary);
+            opacity: 0.95;
+            font-size: 1rem;
+        }
+        
+        .about-card .card-title {
+            font-size: 1.3rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .hero-title {
+            font-size: 2rem;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+        }
+
+        .btn {
+            padding: 8px 20px;
+            font-size: 0.9rem;
+        }
+
+        .grid-list {
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .project-card {
+            height: 450px;
+        }
+
+        .project-card .card-banner {
+            height: 180px;
+        }
+
+        .project-card .card-content {
+            padding: 15px;
+        }
+
+        .project-card .h3.card-title {
+            font-size: 1.1rem;
+        }
+
+        .project-card .card-text {
+            font-size: 0.8rem;
+            -webkit-line-clamp: 3;
+        }
+    }
+
+    /* Add new media query for 420px */
+    @media (max-width: 420px) {
+        .hero-title {
+            font-size: 1.6rem;
+        }
+
+        .section-title {
+            font-size: 1.4rem;
+        }
+
+        .btn {
+            padding: 6px 15px;
+            font-size: 0.85rem;
+        }
+
+        .grid-list {
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+
+        .project-card {
+            height: 420px;
+        }
+
+        .project-card .card-banner {
+            height: 160px;
+        }
+
+        .project-card .card-content {
+            padding: 12px;
+        }
+
+        .project-card .h3.card-title {
+            font-size: 1rem;
+        }
+
+        .project-card .card-text {
+            font-size: 0.75rem;
+            line-height: 1.4;
+            -webkit-line-clamp: 3;
+        }
+
+        .hero-banner {
+            max-width: 250px;
+        }
+
+        .about-card {
+            padding: 12px;
+        }
+
+        .contact-card {
+            padding: 15px;
+        }
+
+        .input-field {
+            padding: 8px;
+            font-size: 0.9rem;
+        }
+
+        .navbar-link {
+            font-size: 0.9rem;
+        }
+
+        .logo h2 {
+            font-size: 1.3rem;
+        }
+    }
+
+    /* Fix for navbar logo in mobile view */
+    .navbar-top .logo h2 {
+        font-size: 2.2rem;
+        font-weight: 800;
+        background: linear-gradient(45deg, #3f78e0, #7cb798);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+
+    /* Add these CSS variables at the top of your style section */
+    :root {
+      --bg-primary: #0a0a0a;
+      --bg-secondary: #111111;
+      --text-primary: #ffffff;
+      --text-secondary: #b3b3b3;
+      --accent: #4f46e5;
+      --accent-dark: #4338ca;
+      --card-bg: #1a1a1a;
+      --gradient-1: linear-gradient(45deg, #4f46e5, #06b6d4);
+      --gradient-2: linear-gradient(45deg, #3b82f6, #10b981);
+      --shadow: 0 0 20px rgba(79, 70, 229, 0.15);
+    }
+
+    /* Update existing styles */
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+    }
+
+    .logo h2 {
+      background: var(--gradient-1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .navbar-link:hover {
+      color: var(--accent);
+      transform: translateY(-2px);
+      transition: all 0.3s ease;
+    }
+
+    .about-card {
+      background-color: var(--card-bg);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: var(--shadow);
+    }
+
+    .project-card {
+      background-color: var(--card-bg) !important;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: var(--shadow);
+    }
+
+    .card-text {
+      color: var(--text-secondary);
+    }
+
+    .btn-primary {
+      background: var(--gradient-1);
+      border: none;
+      box-shadow: 0 4px 15px rgba(79, 70, 229, 0.3);
+    }
+
+    .btn-secondary {
+      background: var(--gradient-2);
+      border: none;
+      box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+    }
+
+    .hero-banner {
+      border: 4px solid transparent;
+      background: 
+        linear-gradient(var(--bg-primary), var(--bg-primary)) padding-box,
+        var(--gradient-1) border-box;
+      box-shadow: var(--shadow);
+    }
+
+    .progress {
+      background-color: var(--card-bg);
+    }
+
+    .progress-fill {
+      background: var(--gradient-1) !important;
+    }
+
+    .contact-card {
+      background-color: var(--card-bg);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: var(--shadow);
+    }
+
+    .input-field {
+      background-color: var(--bg-secondary);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--text-primary);
+    }
+
+    .social-link:hover {
+      color: var(--accent);
+      transform: translateY(-3px) scale(1.1);
+      filter: drop-shadow(0 0 10px var(--accent));
+    }
+
+    /* Add animation effects */
+    .hero-banner img {
+      transition: transform 0.5s ease, filter 0.5s ease;
+    }
+
+    .hero-banner:hover img {
+      transform: scale(1.05);
+      filter: brightness(1.1);
+    }
+
+    .project-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(79, 70, 229, 0.2);
+    }
+
+    /* Update success message */
+    .success-message {
+      background: var(--gradient-1);
+    }
+
+    /* Update scrollbar */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--bg-secondary);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--gradient-1);
+      border-radius: 5px;
+    }
+
+    /* Glowing effect for important elements */
+    .section-title {
+      background: var(--gradient-1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 100px;
+      height: 3px;
+      background: var(--gradient-1);
+      border-radius: 3px;
+    }
+
+    /* Dark theme header updates */
+    .header {
+      background-color: var(--bg-primary);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .navbar {
+      background-color: var(--bg-primary);
+    }
+
+    .navbar-top {
+      background-color: var(--bg-primary);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .navbar-list {
+      background-color: var(--bg-primary);
+    }
+
+    .navbar-link {
+      color: var(--text-primary);
+    }
+
+    .nav-open-btn ion-icon,
+    .nav-close-btn ion-icon {
+      color: var(--text-primary);
+    }
+
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .hero {
+      background-color: var(--bg-primary);
+    }
+
+    .hero-content {
+      color: var(--text-primary);
+    }
+
+    .hero-title {
+      background: var(--gradient-1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 700;
+    }
+
+    .section-text {
+      color: var(--text-secondary);
+    }
+
+    /* Update mobile navbar */
+    @media (max-width: 768px) {
+      .navbar {
+        background-color: var(--bg-secondary);
+        box-shadow: var(--shadow);
+      }
+
+      .navbar-top {
+        background-color: var(--bg-secondary);
+      }
+    }
+
+    .achievements-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .achievement-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+
+    .achievement-card {
+      background: var(--card-bg);
+      border-radius: 15px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      height: 100%;
+      display: flex; /* Added */
+      flex-direction: column; /* Added */
+    }
+
+    .achievement-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(79, 70, 229, 0.2);
+    }
+
+    .achievement-banner {
+      width: 100%;
+      height: auto; /* Changed from fixed height */
+      overflow: hidden;
+      aspect-ratio: 16/9; /* Added to maintain consistent image ratio */
+      position: relative; /* Added for better image control */
+    }
+
+    .achievement-banner img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain; /* Changed from cover to contain */
+      transition: transform 0.3s ease;
+      padding: 10px; /* Added padding to prevent edge touching */
+      background-color: var(--card-bg); /* Match card background */
+    }
+
+    .achievement-card:hover .achievement-banner img {
+      transform: scale(1.1);
+    }
+
+    .achievement-content {
+      padding: 1.5rem;
+      flex-grow: 1; /* Added to maintain consistent card heights */
+    }
+
+    .achievement-content .card-title {
+      color: var(--text-primary);
+      margin-bottom: 1rem;
+      font-size: 1.25rem;
+    }
+
+    .achievement-text {
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+      .achievement-row {
+        grid-template-columns: 1fr;
+      }
+      
+      .achievement-banner {
+        height: 200px;
+      }
+    }
+
+    /* Update the achievements grid styles */
+    .achievements-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+      margin-top: 3rem;
+    }
+
+    .achievement-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .achievement-card {
+      background: var(--card-bg);
+      border-radius: 15px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      height: 100%;
+    }
+
+    .achievement-banner {
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
+    }
+
+    .achievement-banner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .achievement-content {
+      padding: 1.5rem;
+    }
+
+    /* Mobile responsiveness */
+    @media (max-width: 992px) {
+      .achievement-row {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .achievement-row {
+        grid-template-columns: 1fr;
+      }
+      
+      .achievement-banner {
+        height: 200px;
+      }
+    }
+
+    .project-card .h3.card-title {
+      color: var(--text-primary);
+      font-weight: 700;
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      background: var(--gradient-1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .project-card .card-tag {
+      color: var(--text-primary) !important;
+      font-weight: 600;
+      opacity: 0.9;
+    }
+
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .tech-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1rem;
+      background: var(--card-bg);
+      border-radius: 12px;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .tech-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(79, 70, 229, 0.3);
+      border-color: rgba(79, 70, 229, 0.5);
+    }
+
+    .tech-item img {
+      width: 45px;
+      height: 45px;
+      object-fit: contain;
+      filter: brightness(1.1);
+    }
+
+    .tech-item span {
+      color: var(--text-primary);
+      font-weight: 500;
+      font-size: 0.85rem;
+      text-align: center;
+      line-height: 1.2;
+    }
+
+    /* Responsive grid adjustments */
+    @media (max-width: 1200px) {
+      .tech-grid {
+        grid-template-columns: repeat(5, 1fr);
+        gap: 1.3rem;
+      }
+    }
+
+    @media (max-width: 992px) {
+      .tech-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.2rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .tech-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+      }
+      
+      .tech-item {
+        padding: 0.8rem;
+      }
+      
+      .tech-item img {
+        width: 40px;
+        height: 40px;
+      }
+      
+      .tech-item span {
+        font-size: 0.8rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .tech-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* Live Coding Profiles Styles */
+    .dashboard-row {
+      padding: 4rem 0;
+      background: linear-gradient(135deg, rgba(79, 70, 229, 0.05), rgba(6, 182, 212, 0.05));
+    }
+
+    .coding-stats-card {
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .coding-stats-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+      transition: left 0.5s ease;
+    }
+
+    .coding-stats-card:hover::before {
+      left: 100%;
+    }
+
+    .coding-stats-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(79, 70, 229, 0.2);
+    }
+
+    .stats-badge {
+      transition: all 0.3s ease;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .stats-badge:hover {
+      transform: scale(1.05);
+      filter: brightness(1.1);
+    }
+
+    .loading-pulse {
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { opacity: 1; }
+      50% { opacity: 0.5; }
+      100% { opacity: 1; }
+    }
+
+    /* Responsive adjustments for coding profiles */
+    @media (max-width: 1200px) {
+      .dashboard-row .container > div {
+        gap: 2rem !important;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .dashboard-row .container > div {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem !important;
+      }
+      
+      .coding-stats-card {
+        min-width: 100% !important;
+        max-width: 100% !important;
+      }
+
+      .dashboard-row h3 {
+        font-size: 1.1rem !important;
+      }
+
+      .stats-badge {
+        width: 100%;
+        max-width: 200px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .dashboard-row {
+        padding: 2rem 0;
+      }
+
+      .coding-stats-card {
+        padding: 1.5rem !important;
+      }
+
+      .dashboard-row h2 {
+        font-size: 1.5rem !important;
+      }
+
+      .dashboard-row h3 {
+        font-size: 1rem !important;
+      }
+    }
+
+    /* GitHub Heatmap Specific Styles */
+    .github-heatmap-section {
+      background: linear-gradient(135deg, rgba(79, 70, 229, 0.03), rgba(6, 182, 212, 0.03));
+      border-radius: 20px;
+      padding: 2rem;
+      margin: 2rem 0;
+    }
+
+    .github-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .github-stat-card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .github-stat-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(79, 70, 229, 0.2);
+    }
+
+    .github-heatmap-container {
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      overflow: hidden;
+    }
+
+    .heatmap-scroll {
+      overflow-x: auto;
+      padding: 1rem 0;
+      scrollbar-width: thin;
+      scrollbar-color: var(--accent) var(--bg-secondary);
+    }
+
+    .heatmap-scroll::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    .heatmap-scroll::-webkit-scrollbar-track {
+      background: var(--bg-secondary);
+      border-radius: 4px;
+    }
+
+    .heatmap-scroll::-webkit-scrollbar-thumb {
+      background: var(--gradient-1);
+      border-radius: 4px;
+    }
+
+    .github-title {
+      background: var(--gradient-1);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+    }
+
+    /* Mobile responsiveness for GitHub section */
+    @media (max-width: 768px) {
+      .github-heatmap-section {
+        padding: 1.5rem;
+        margin: 1rem 0;
+      }
+
+      .github-stats-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .github-stat-card {
+        padding: 1rem;
+      }
+
+      .github-heatmap-container {
+        padding: 1.5rem;
+      }
+
+      .github-title {
+        font-size: 1.2rem !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .github-heatmap-section {
+        padding: 1rem;
+      }
+
+      .github-heatmap-container {
+        padding: 1rem;
+      }
+
+      .github-title {
+        font-size: 1.1rem !important;
+      }
+    }
+
+    /* Loading states */
+    .stats-loading {
+      background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+      background-size: 200% 100%;
+      animation: loading 1.5s infinite;
+    }
+
+    @keyframes loading {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+
+    /* Enhanced link styles for profile links */
+    .profile-link {
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .profile-link::after {
+      content: '→';
+      position: absolute;
+      right: -20px;
+      opacity: 0;
+      transition: all 0.3s ease;
+    }
+
+    .profile-link:hover::after {
+      right: 5px;
+      opacity: 1;
+    }
+   
+  </style>
+
+</head>
+
+<body>
+
+  <!-- 
+    - #HEADER
+  -->
+
+  <header class="header" data-header>
+    <div class="container">
+
+      <a href="#" class="logo">
+        <h2>MohanRaja</h2>
+      </a>
+
+      <nav class="navbar" data-navbar>
+
+        <div class="navbar-top">
+          <a href="#" class="logo">
+            <h2>MohanRaja</h2>
+          </a>
+
+          <button class="nav-close-btn" aria-label="close menu" data-nav-toggler>
+            <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
+          </button>
+        </div>
+
+        <ul class="navbar-list">
+
+          <li>
+            <a href="#top" class="navbar-link">Home</a>
+          </li>
+
+          <li>
+            <a href="#about" class="navbar-link">About</a>
+          </li>
+
+          <li>
+            <a href="#projects" class="navbar-link">Projects</a>
+          </li>
+
+          <li>
+            <a href="#achievements" class="navbar-link">Achievements</a>
+          </li>
+
+          <li>
+            <a href="#contact" class="navbar-link">Contact</a>
+          </li>
+
+        </ul>
+
+
+        <ul class="social-list">
+
+          <li>
+            <a href="http://www.linkedin.com/in/mohanraja-tech" target="_blank" class="social-link">
+              <ion-icon name="logo-linkedin"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://github.com/MohanRaja-tech" target="_blank" class="social-link">
+              <ion-icon name="logo-github"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://leetcode.com/u/Mohan_06/" target="_blank" class="social-link">
+              <svg class="leetcode-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.83 5.83 0 0 0 .349 1.017 5.938 5.938 0 0 0 1.271 1.818l4.277 4.193.039.038c2.248 2.165 5.852 2.133 8.063-.074l2.396-2.392c.54-.54.54-1.414.003-1.955a1.378 1.378 0 0 0-1.951-.003l-2.396 2.392a3.021 3.021 0 0 1-4.205.038l-.02-.019-4.276-4.193c-.652-.64-.972-1.469-.948-2.263a2.68 2.68 0 0 1 .066-.523 2.545 2.545 0 0 1 .619-1.164L9.13 8.114c1.058-1.134 3.204-1.27 4.43-.278l3.501 2.831c.593.48 1.461.387 1.94-.207a1.384 1.384 0 0 0-.207-1.943l-3.5-2.831c-.8-.647-1.766-1.045-2.774-1.202l2.015-2.158A1.384 1.384 0 0 0 13.483 0zm-2.866 12.815a1.38 1.38 0 0 0-1.38 1.382 1.38 1.38 0 0 0 1.38 1.382H20.79a1.38 1.38 0 0 0 1.38-1.382 1.38 1.38 0 0 0-1.38-1.382z"/>
+              </svg>
+            </a>
+          </li>
+
+        </ul>
+
+      </nav>
+
+      <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
+        <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
+      </button>
+
+      <div class="overlay" data-nav-toggler data-overlay></div>
+
+    </div>
+  </header>
+
+
+
+
+
+  <main>
+    <article>
+
+      <!-- 
+        - #HERO
+      -->
+
+      <section class="section hero" aria-label="home">
+        <div class="container">
+
+          <figure class="hero-banner">
+            <img src="./assets/images/mohanprofile2.jpg" 
+                 width="560" 
+                 height="540" 
+                 alt="Mohan Raja - Web Developer" 
+                 class="w-100"
+                 loading="eager"
+                 data-reveal="top"
+                 onerror="console.error('Failed to load hero image:', this.src)">
+          </figure>
+
+          <div class="hero-content">
+
+            <div style="display: flex; justify-content: center; margin-bottom: 1rem;">
+              <span style="background: linear-gradient(45deg, #4f46e5, #06b6d4); color: #fff; font-weight: 700; padding: 0.5rem 1.2rem; border-radius: 20px; font-size: 1.1rem; box-shadow: 0 2px 8px rgba(79,70,229,0.15); letter-spacing: 1px;">Intern Web Developer at Kongu Engineering College</span>
+            </div>
+
+            <h1 class="h1 hero-title" data-reveal="top" data-reveal-delay="0.5s">
+              I'm MohanRaja , an Aspiring Front-End Developer.
+            </h1>
+
+            <p class="section-text" data-reveal="top" data-reveal-delay="0.75s">
+              I am Mohan, currently pursuing my Bachelor's degree in Information Technology at Kongu Engineering College, with a CGPA of 8.0. I have successfully completed my Higher Secondary Education at Kongu Kalvi Nilayam, securing 90%.
+            </p>
+
+            <div class="btn-wrapper" data-reveal="top" data-reveal-delay="1s">
+              <a href="./assets/images/Mohan resume.pdf" download="Mohan_Resume.pdf" class="btn btn-primary">Download CV</a>
+
+              <a href="https://wa.me/+919003948329" target="_blank" class="btn btn-secondary">Contact Me</a>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- LeetCode & GeeksforGeeks Dashboard Row -->
+      <section class="section dashboard-row" aria-label="coding-profiles">
+        <div class="container">
+          <h2 class="h2 section-title" style="text-align:center; margin-bottom:2rem;">Live Coding Profiles & Stats</h2>
+          <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 3rem; align-items: stretch;">
+            
+            <!-- LeetCode Live Stats -->
+            <div class="coding-stats-card" style="flex:1; min-width:350px; max-width:550px; background:var(--card-bg); border-radius:16px; box-shadow:var(--shadow); padding:2rem; border: 1px solid rgba(255, 255, 255, 0.1);">
+              <div style="text-align:center; margin-bottom:1.5rem;">
+                <h3 style="color:var(--text-primary); font-weight:600; font-size:1.3rem; margin-bottom:0.5rem;">LeetCode Profile</h3>
+                <a href="https://leetcode.com/u/Mohan_06/" target="_blank" class="profile-link" style="color:var(--accent); text-decoration:none; font-size:1rem;">@Mohan_06</a>
+              </div>
+              
+              <!-- Live LeetCode Stats -->
+              <div id="leetcode-stats" style="display:flex; flex-direction:column; gap:1rem;">
+                <div style="text-align:center;">
+                  <img src="https://leetcard.jacoblin.cool/Mohan_06?theme=dark&font=ABeeZee&ext=contest" alt="LeetCode Stats" class="loading-pulse" style="width:100%; max-width:500px; border-radius:12px; object-fit:contain;" loading="lazy">
+                </div>
+                
+                <!-- LeetCode Badges -->
+                <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:0.8rem; margin-top:1rem;">
+                  <img src="https://img.shields.io/badge/LeetCode-Profile-FFA116?style=for-the-badge&logo=leetcode&logoColor=white" alt="LeetCode Profile" class="stats-badge" loading="lazy">
+                  <img src="https://img.shields.io/badge/Problems-Solved-00b4a4?style=for-the-badge&logo=leetcode&logoColor=white" alt="Problems Solved" class="stats-badge" loading="lazy">
+                </div>
+              </div>
+            </div>
+
+            <!-- GeeksforGeeks Live Stats -->
+            <div class="coding-stats-card" style="flex:1; min-width:350px; max-width:550px; background:var(--card-bg); border-radius:16px; box-shadow:var(--shadow); padding:2rem; border: 1px solid rgba(255, 255, 255, 0.1);">
+              <div style="text-align:center; margin-bottom:1.5rem;">
+                <h3 style="color:var(--text-primary); font-weight:600; font-size:1.3rem; margin-bottom:0.5rem;">GeeksforGeeks Profile</h3>
+                <a href="https://www.geeksforgeeks.org/user/mohandxzl/" target="_blank" class="profile-link" style="color:var(--accent); text-decoration:none; font-size:1rem;">@mohandxzl</a>
+              </div>
+              
+              <!-- Live GFG Stats -->
+              <div id="gfg-stats" style="display:flex; flex-direction:column; gap:1rem;">
+                <div style="text-align:center;">
+                  <img src="https://geeks-for-geeks-stats-card.vercel.app/?username=mohandxzl&theme=dark" alt="GeeksforGeeks Stats" class="loading-pulse" style="width:100%; max-width:500px; border-radius:12px; object-fit:contain;" loading="lazy">
+                </div>
+                
+                <!-- GFG Badges -->
+                <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:0.8rem; margin-top:1rem;">
+                  <img src="https://img.shields.io/badge/GeeksforGeeks-Profile-darkgreen?style=for-the-badge&logo=geeksforgeeks&logoColor=white" alt="GFG Profile" class="stats-badge" loading="lazy">
+                  <img src="https://img.shields.io/badge/Coding-Problems-orange?style=for-the-badge&logo=geeksforgeeks&logoColor=white" alt="GFG Problems" class="stats-badge" loading="lazy">
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #ABOUT
+      -->
+
+      <section class="section about" aria-label="about" id="about">
+        <div class="container">
+
+          <div class="wrapper">
+
+            <div data-reveal="left">
+              <h2 class="h2 section-title">What I Do?</h2>
+
+              <p class="section-text">
+                As a Developer, I solve competitive problems and build projects that address real-time challenges.
+I am passionate about crafting efficient, scalable solutions through clean code and innovative thinking.
+Continuously learning and adapting, I strive to contribute to impactful technologies that make a difference.
+              </p>
+            </div>
+
+            <div data-reveal="right">
+              <h2 class="h2 section-title">Technologies</h2>
+              <div class="tech-grid">
+                <!-- Programming Languages -->
+                <div class="tech-item">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="C">
+                  <span>C</span>
+                </div>
+                <div class="tech-item">
+                  <img src="./assets/images/java-vertical.svg" alt="Java">
+                  <span>Java</span>
+                </div>
+                <div class="tech-item">
+                  <img src="./assets/images/python-svgrepo-com.svg" alt="Python">
+                  <span>Python</span>
+                </div>
+                
+                <!-- Web Technologies -->
+                <div class="tech-item">
+                  <img src="./assets/images/html-5-svgrepo-com.svg" alt="HTML">
+                  <span>HTML</span>
+                </div>
+                <div class="tech-item">
+                  <img src="./assets/images/css-3-svgrepo-com.svg" alt="CSS">
+                  <span>CSS</span>
+                </div>
+                <div class="tech-item">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" alt="Bootstrap">
+                  <span>Bootstrap</span>
+                </div>
+                <div class="tech-item">
+                  <img src="./assets/images/javascript-logo-svgrepo-com.svg" alt="JavaScript">
+                  <span>JavaScript</span>
+                </div>
+                
+                <!-- Databases -->
+                <div class="tech-item">
+                  <img src="./assets/images/mongodb-svgrepo-com.svg" alt="MongoDB">
+                  <span>MongoDB</span>
+                </div>
+                <div class="tech-item">
+                  <img src="./assets/images/mysql-logo-svgrepo-com.svg" alt="SQL">
+                  <span>SQL</span>
+                </div>
+                
+                <!-- Frameworks & Libraries -->
+                <div class="tech-item">
+                  <img src="./assets/images/react-svgrepo-com.svg" alt="React">
+                  <span>React.js</span>
+                </div>
+                <div class="tech-item">
+                  <img src="./assets/images/nodejs-logo-svgrepo-com.svg" alt="Node.js">
+                  <span>Node.js</span>
+                </div>
+                <div class="tech-item">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" alt="Express.js">
+                  <span>Express.js</span>
+                </div>
+                
+                <!-- AI/ML Technologies -->
+                <div class="tech-item">
+                  <img src="./assets/images/langchain.svg" alt="RAG">
+                  <span>RAG</span>
+                </div>
+                <div class="tech-item">
+                  <img src="./assets/images/opencv-svgrepo-com.svg" alt="OpenCV">
+                  <span>OpenCV</span>
+                </div>
+                <div class="tech-item">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="YOLO">
+                  <span>YOLO v8</span>
+                </div>
+                <div class="tech-item">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="MediaPipe">
+                  <span>MediaPipe</span>
+                </div>
+                <div class="tech-item">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Pillow">
+                  <span>Pillow (PIL)</span>
+                </div>
+                <div class="tech-item">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Tesseract">
+                  <span>Tesseract OCR</span>
+                </div>
+                
+                <!-- Web Frameworks -->
+                <div class="tech-item">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" alt="Flask">
+                  <span>Flask</span>
+                </div>
+                <div class="tech-item">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Streamlit">
+                  <span>Streamlit</span>
+                </div>
+                
+                <!-- ML Libraries -->
+                <div class="tech-item">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/scikitlearn/scikitlearn-original.svg" alt="Scikit-learn">
+                  <span>Scikit-learn</span>
+                </div>
+                <div class="tech-item">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" alt="PyTorch">
+                  <span>PyTorch</span>
+                </div>
+                <div class="tech-item">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="DeepFace">
+                  <span>DeepFace</span>
+                </div>
+                <div class="tech-item">
+                  <img src="./assets/images/langchain.svg" alt="Langchain">
+                  <span>Langchain</span>
+                </div>
+                <div class="tech-item">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="BeautifulSoup">
+                  <span>BeautifulSoup</span>
+                </div>
+                
+                <!-- Data Science -->
+                <div class="tech-item">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg" alt="NumPy">
+                  <span>NumPy</span>
+                </div>
+                <div class="tech-item">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" alt="Pandas">
+                  <span>Pandas</span>
+                </div>
+                <div class="tech-item">
+                  <img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" alt="Hugging Face">
+                  <span>Hugging Face</span>
+                </div>
+                
+                <!-- Version Control -->
+                <div class="tech-item">
+                  <img src="./assets/images/git-icon-logo-svgrepo-com.svg" alt="Git">
+                  <span>Git</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #PROJECT
+      -->
+
+      <section class="section project" aria-labelledby="project-label" id="projects">
+        <div class="container">
+
+          <div class="title-wrapper" data-reveal="top">
+
+            <div>
+              <h2 class="h2 section-title" id="project-label">Latest Projects</h2>
+
+              <p class="section-text">
+                Check out some of my latest projects with creative ideas.
+              </p>
+            </div>
+
+            
+
+          </div>
+
+          <ul class="grid-list">
+
+            <li>
+              <div class="project-card project-card-1" style="background-color: var(--card-bg)">
+
+                <div class="card-content" data-reveal="left">
+
+                  <p class="card-tag" style="color: #a07cc5">Cyber Security</p>
+
+                  <h3 class="h3 card-title">Facial Intruder Alert System</h3>
+
+                  <p class="card-text">
+                    The Facial Intruder Alert System is a cybersecurity-powered security solution that continuously monitors personal devices using real-time facial recognition.
+It detects unauthorized access attempts and issues immediate alerts through pop-ups, phone calls, and email notifications.
+The system can lock the device, track multiple faces, and respond to suspicious behavior such as camera obstruction.
+Designed to operate independently of OS-level security, it offers robust protection in shared or public environments.                  </p>
+
+                </div>
+
+                <figure class="card-banner" data-reveal="right">
+                  <img src="./assets/images/project-1.jpg" width="650" height="370" loading="lazy" alt="Web Design"
+                    class="w-100 project-1">
+                </figure>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="project-card project-card-2" style="background-color: var(--card-bg)">
+
+                <div class="card-content" data-reveal="right">
+
+                  <p class=" card-tag" style="color: #3f78e0">RAG (Retrieval Augmented Generation)</p>
+
+                  <h3 class="h3 card-title">AI powered Study Buddy</h3>
+
+                  <p class="card-text">
+                    RAG AI is an intelligent, retrieval-augmented system that ingests content from uploaded PDFs or website links and delivers accurate, context-aware answers based on user queries.
+                    It combines document-based search with generative AI capabilities to ensure high relevance and precision in responses.
+                    Users can switch to a general AI chat mode for open-ended conversations, similar to ChatGPT functionality.
+                    Designed for flexibility and efficiency, RAG AI enhances knowledge access and delivers dynamic, real-time insights.
+                  </p>
+
+                </div>
+
+                <figure class="card-banner" data-reveal="left">
+                  <img src="./assets/images/project-2.jpg" width="600" height="367" loading="lazy" alt="Web Design"
+                    class=" w-100 project-2">
+                </figure>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="project-card project-card-3" style="background-color: var(--card-bg)">
+
+                <div class="card-content" data-reveal="left">
+
+                  <p class=" card-tag" style="color: #7cb798">Machine Learning</p>
+
+                  <h3 class="h3 card-title">AI powered Vulnerability Scanner</h3>
+
+                  <p class="card-text">
+                    The AI-powered Vulnerability Scanner is an intelligent security analysis system that combines pattern-based techniques with machine learning to detect complex and context-specific code flaws. It performs static code analysis using methods like regex matching, AST parsing, and control flow inspection for comprehensive vulnerability detection. Machine learning models enhance accuracy by classifying threats and reducing false positives. Designed for seamless integration into development workflows, the system offers automated remediation, detailed risk reports, and real-time feedback to strengthen software security throughout the development lifecycle.                                            
+                  </p>
+
+                </div>
+
+                <figure class="card-banner" data-reveal="right">
+                  <img src="./assets/images/project-3.jpg.jpg" width="600" height="367" loading="lazy" alt="Web Design"
+                    class="w-100 project-3">
+                </figure>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="project-card project-card-4" style="background-color: var(--card-bg)">
+
+                <div class="card-content" data-reveal="left">
+
+                  <p class=" card-tag" style="color: #d16b86">Full stack Development</p>
+
+                  <h3 class="h3 card-title">Flexi-Commerce</h3>
+
+                  <p class="card-text">
+                    FlexiCommerce is a dynamic e-commerce platform that empowers clients to build and manage their own custom online stores with zero coding skills.
+                    Through a user-friendly admin interface, users can fully personalize their website's design, images, and content in real time.
+                    The platform allows seamless addition and management of categories, products, and multimedia assets with no predefined limits.
+                    Its flexible architecture supports infinite scalability based on user needs and business growth.
+                    Designed for simplicity and power, FlexiCommerce enables anyone to launch a professional, customized online store effortlessly.
+                  </p>
+
+                </div>
+
+                <figure class="card-banner" data-reveal="right">
+                  <img src="./assets/images/project-4.jpg" width="620" height="370" loading="lazy" alt="Mobile Design"
+                    class="w-100 project-4">
+                </figure>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="project-card project-card-5" style="background-color: var(--card-bg)">
+
+                <div class="card-content" data-reveal="right">
+
+                  <p class="card-tag" style="color: #e67e22">Java</p>
+
+                  <h3 class="h3 card-title">Cash </h3>
+
+                  <p class="card-text">
+                   This is a Java-based desktop application leveraging Swing for its graphical user interface
+
+. It enables users to track income and expenses across customizable categories—like salary, groceries, and entertainment—and set savings goals with progress visualization
+
+. Data management is handled internally using HashMaps for efficient transaction tallying
+
+. The app displays real-time bar charts comparing income versus expenses, complemented by a linked-list style visualization of transactions—color-coded for clarity (e.g., green for income)
+
+. Upon closing entries, remaining positive balances are automatically rolled into savings, giving users an immediate sense of their net cash flow and budget status 
+                  </p>
+
+                </div>
+
+                <figure class="card-banner" data-reveal="left">
+                  <img src="./assets/images/project-5.webp" width="600" height="367" loading="lazy" alt="Project 5"
+                    class="w-100 project-5">
+                </figure>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="project-card project-card-6" style="background-color: var(--card-bg)">
+
+                <div class="card-content" data-reveal="left">
+
+                  <p class="card-tag" style="color: #9b59b6">MERN Stack</p>
+
+                  <h3 class="h3 card-title">Task Manager</h3>
+
+                  <p class="card-text">
+                    The Task Manager is a full-stack web application built using the MERN stack (MongoDB, Express.js, React.js, Node.js) that allows users to efficiently manage and organize tasks. It provides CRUD (Create, Read, Update, Delete) functionality, enabling users to add, edit, mark as complete, or delete tasks. The frontend, built with React, offers a clean and responsive user interface for smooth interaction. The backend, powered by Express and Node.js, handles API requests, while MongoDB ensures efficient storage and retrieval of task data. This project demonstrates seamless integration between frontend and backend with RESTful APIs, making it a practical tool for personal or team task management.
+                  </p>
+
+                </div>
+
+                <figure class="card-banner" data-reveal="right">
+                  <img src="./assets/images/project-6.jpg" width="650" height="370" loading="lazy" alt="Project 6"
+                    class="w-100 project-6">
+                </figure>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="project-card project-card-7" style="background-color: var(--card-bg)">
+
+                <div class="card-content" data-reveal="right">
+
+                  <p class="card-tag" style="color: #1abc9c">MERN Stack</p>
+
+                  <h3 class="h3 card-title">Family Budget Management System</h3>
+
+                  <p class="card-text">
+                    The Family Budget Management System is a full-stack web application developed using the MERN stack (MongoDB, Express.js, React.js, Node.js) to help families efficiently plan and track their finances. It allows users to record income and expenses, categorize transactions, and monitor budget limits in real-time. The React-based frontend provides an intuitive and responsive interface, while the Node.js & Express backend handles secure API requests. MongoDB stores financial data, ensuring easy retrieval and analytics. The system also offers budget summaries, spending insights, and visual charts to help families make informed financial decisions.                  </p>
+
+                </div>
+
+                <figure class="card-banner" data-reveal="left">
+                  <img src="./assets/images/project-7.png" width="600" height="367" loading="lazy" alt="Project 7"
+                    class="w-100 project-7">
+                </figure>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="project-card project-card-8" style="background-color: var(--card-bg)">
+
+                <div class="card-content" data-reveal="left">
+
+                  <p class="card-tag" style="color: #f39c12">Frontend Development</p>
+
+                  <h3 class="h3 card-title">IIPC Website</h3>
+
+                  <p class="card-text">
+                    This project delivers a dedicated web portal for the IIPC at Kongu Engineering College, showcasing its mission of bridging academia and industry through diverse collaborative initiatives. Visitors can explore comprehensive information on achievements, consultancy services, testing facilities, training programmes, and signed agreements (MoUs). The site highlights key activities like faculty industrial training, energy audits, student internships and industrial projects, and research collaborations. It also presents impressive milestones—such as revenue generation, industry partners, and the number of students trained—alongside structured navigation for seamless access to services. Overall, the website serves as a polished and functional platform to communicate the operations, objectives, and impact of the IIPC effectively.
+                  </p>
+
+                </div>
+
+                <figure class="card-banner" data-reveal="right">
+                  <img src="./assets/images/project-8.png" width="620" height="370" loading="lazy" alt="Project 8"
+                    class="w-100 project-8">
+                </figure>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="project-card project-card-9" style="background-color: var(--card-bg)">
+
+                <div class="card-content" data-reveal="right">
+
+                  <p class="card-tag" style="color: #e74c3c">Machine Learning</p>
+
+                  <h3 class="h3 card-title">Handwritten Digits Recognition</h3>
+
+                  <p class="card-text">
+                    The Handwritten Digit Recognition project is a machine learning application that identifies digits (0–9) from handwritten images using the MNIST dataset. It leverages a Convolutional Neural Network (CNN) to learn and classify digit patterns with high accuracy. The model is trained on 60,000 labeled images and tested on 10,000 images to ensure robust performance. Python with TensorFlow/Keras is used for model development, training, and evaluation. The system can predict digits from user-provided images, demonstrating the practical application of deep learning in image classification tasks.
+                  </p>
+
+                </div>
+
+                <figure class="card-banner" data-reveal="left">
+                  <img src="./assets/images/project-9.png" width="600" height="367" loading="lazy" alt="Project 9"
+                    class="w-100 project-9">
+                </figure>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="project-card project-card-10" style="background-color: var(--card-bg)">
+
+                <div class="card-content" data-reveal="left">
+
+                  <p class="card-tag" style="color: #2c3e50">Web Development</p>
+
+                  <h3 class="h3 card-title">Wifi and Password Management portal</h3>
+
+                  <p class="card-text">
+                    The Wi-Fi and Password Management Portal is an official platform that enables students, faculty, and staff to securely access and manage their campus network credentials. It provides an easy interface for registering devices, viewing connection details, and updating or resetting Wi-Fi passwords. The portal ensures secure authentication and smooth connectivity across the campus network. It also offers guidelines for proper configuration, helping users maintain both convenience and data security. Designed for reliability, the system supports uninterrupted internet access for academic and administrative activities.                  </p>
+
+                </div>
+
+                <figure class="card-banner" data-reveal="right">
+                  <img src="./assets/images/project-10.png" width="650" height="370" loading="lazy" alt="Project 10"
+                    class="w-100 project-10">
+                </figure>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="project-card project-card-11" style="background-color: var(--card-bg)">
+
+                <div class="card-content" data-reveal="right">
+
+                  <p class="card-tag" style="color: #16a085">Frontend Development</p>
+
+                  <h3 class="h3 card-title">KEC Education WebPage</h3>
+
+                  <p class="card-text">
+                    The KEC Education Page has been designed with a modern and visually appealing user interface to enhance the browsing experience for students, faculty, and visitors. It features a clean layout, intuitive navigation, and well-structured content sections for quick access to academic resources and institutional information. The design emphasizes readability, aesthetic balance, and user engagement. Interactive elements and organized visuals ensure that visitors can easily find relevant information. Overall, the page combines functionality with a contemporary look to reflect the professionalism and academic excellence of Kongu Engineering College.
+                  </p>
+
+                </div>
+
+                <figure class="card-banner" data-reveal="left">
+                  <img src="./assets/images/project-11.png" width="600" height="367" loading="lazy" alt="Project 11"
+                    class="w-100 project-11">
+                </figure>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="project-card project-card-12" style="background-color: var(--card-bg)">
+
+                <div class="card-content" data-reveal="left">
+
+                  <p class="card-tag" style="color: #8e44ad">Java</p>
+
+                  <h3 class="h3 card-title">ATM Management System</h3>
+
+                  <p class="card-text">
+                    The ATM Transaction Program is a Java-based desktop application built with AWT that simulates core ATM functionalities with a simple and interactive interface. It allows users to log in using either their account number or phone number, validated against a pre-stored list containing account details. Once logged in, users can perform essential banking operations such as deposit, withdrawal, balance inquiry, and interest calculation. The system includes robust validations—for example, preventing withdrawals when the balance is zero and correctly updating the balance after deposits. It also offers an interest comparison feature between multiple banks using simple interest calculations. The program integrates custom background images for an engaging UI experience.
+                  </p>
+
+                </div>
+
+                <figure class="card-banner" data-reveal="right">
+                  <img src="./assets/images/project-12.jpg" width="600" height="367" loading="lazy" alt="Project 12"
+                    class="w-100 project-12">
+                </figure>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="project-card project-card-13" style="background-color: var(--card-bg)">
+
+                <div class="card-content" data-reveal="right">
+
+                  <p class="card-tag" style="color: #c0392b">Python</p>
+
+                  <h3 class="h3 card-title">File Sharing App</h3>
+
+                  <p class="card-text">
+                    The File Sharing App is a Python-based application designed to enable fast and secure transfer of files between devices over a network. It provides a simple interface for selecting files and sending them to connected users without relying on third-party services. The app uses socket programming to establish direct communication between devices, ensuring efficient data transfer. It supports different file types and maintains the integrity of files during transmission. This project demonstrates practical networking concepts and provides a lightweight, user-friendly solution for local file sharing.
+                  </p>
+
+                </div>
+
+                <figure class="card-banner" data-reveal="left">
+                  <img src="./assets/images/project-13.webp" width="620" height="370" loading="lazy" alt="Project 13"
+                    class="w-100 project-13">
+                </figure>
+
+              </div>
+            </li>
+
+          </ul>
+
+        </div>
+      </section>
+
+      <!-- 
+        - #ACHIEVEMENTS
+      -->
+      <section class="section achievements" aria-labelledby="achievements-label" id="achievements">
+        <div class="container">
+          <div class="title-wrapper" data-reveal="top">
+            <div>
+              <h2 class="h2 section-title" id="achievements-label">Achievements</h2>
+              <p class="section-text">
+                Notable recognitions and accomplishments in my journey.
+              </p>
+            </div>
+          </div>
+
+          <div class="achievements-grid">
+            <!-- Row 1 -->
+            <div class="achievement-row">
+              <div class="achievement-card" data-reveal="left">
+                <figure class="achievement-banner">
+                  <img src="./assets/images/Codeathon 24 prize.jpg" alt="Codeathon">
+                </figure>
+                <div class="achievement-content">
+                  <h3 class="h4 card-title">Codeathon Winner</h3>
+                  <p class="achievement-text">
+                    Secured Second Place in the Coding Event Conducted by the Coding club of Information Technology Department.
+                  </p>
+                </div>
+              </div>
+
+              <div class="achievement-card" data-reveal="left">
+                <figure class="achievement-banner">
+                  <img src="./assets/images/Eshwar Hackathon.jpg" alt="Hackathon">
+                </figure>
+                <div class="achievement-content">
+                  <h3 class="h4 card-title">24-HRS Hackathon</h3>
+                  <p class="achievement-text">
+                    Secured Runner Up position in the 24 hrs Hackathon and Honured with Tech titans Award.
+                  </p>
+                </div>
+              </div>
+
+              <div class="achievement-card" data-reveal="right">
+                <figure class="achievement-banner">
+                  <img src="./assets/images/Prototype expo 2025.jpg" alt="Prototype Expo">
+                </figure>
+                <div class="achievement-content">
+                  <h3 class="h4 card-title">Software Prototype Expo</h3>
+                  <p class="achievement-text">
+                    Secured First place in the Prototype Expo Evaluated By Industry Experts.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Row 2 -->
+            <div class="achievement-row">
+              <div class="achievement-card" data-reveal="left">
+                <figure class="achievement-banner">
+                  <img src="./assets/images/Ruby year 2025.jpg" alt="Ruby Year">
+                </figure>
+                <div class="achievement-content">
+                  <h3 class="h4 card-title">Ruby Year Prototype Expo 2025</h3>
+                  <p class="achievement-text">
+                    Secured Second position in the Project Expo Evaluated By Startups.
+                  </p>
+                </div>
+              </div>
+
+              <div class="achievement-card" data-reveal="left">
+                <figure class="achievement-banner">
+                  <img src="./assets/images/csd Technical presentation.jpg" alt="Technical Presentation">
+                </figure>
+                <div class="achievement-content">
+                  <h3 class="h4 card-title">Technical Presentation</h3>
+                  <p class="achievement-text">
+                    Secured First Prize in the Technical Presentation Conducted By the CSD Department.
+                  </p>
+                </div>
+              </div>
+
+              <div class="achievement-card" data-reveal="right">
+                <figure class="achievement-banner">
+                  <img src="./assets/images/sign in expo.jpg" alt="SignIn Expo">
+                </figure>
+                <div class="achievement-content">
+                  <h3 class="h4 card-title">SignIn Project Expo</h3>
+                  <p class="achievement-text">
+                    Secured Second prize in SignIn project exhibition for the innovative solution.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- New Third Row -->
+            <div class="achievement-row">
+              <div class="achievement-card" data-reveal="left">
+                <figure class="achievement-banner">
+                  <img src="./assets/images/IT Inception 24 paper.jpg" alt="Achievement 7">
+                </figure>
+                <div class="achievement-content">
+                  <h3 class="h4 card-title">Paper Presentation</h3>
+                  <p class="achievement-text">
+                   Secured First prize in the Paper presentation conducted by IT Association.
+                  </p>
+                </div>
+              </div>
+
+              <div class="achievement-card" data-reveal="left">
+                <figure class="achievement-banner">
+                  <img src="./assets/images/mark us Hackathon.jpg" alt="Achievement 8">
+                </figure>
+                <div class="achievement-content">
+                  <h3 class="h4 card-title">1 Day Hackathon</h3>
+                  <p class="achievement-text">
+                    Secured first Prize in the 1 Day Hackathon Conducted By CT-UG Department.
+                  </p>
+                </div>
+              </div>
+
+              <div class="achievement-card" data-reveal="right">
+                <figure class="achievement-banner">
+                  <img src="./assets/images/SNS Project.jpg" alt="Achievement 9">
+                </figure>
+                <div class="achievement-content">
+                  <h3 class="h4 card-title">Prototype Presentation</h3>
+                  <p class="achievement-text">
+                    Secured Second Position in the Prototype expo in SNS College of Technology.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- New Fourth Row -->
+            <div class="achievement-row">
+              <div class="achievement-card" data-reveal="left">
+                <figure class="achievement-banner">
+                  <img src="./assets/images/Nandha paper.jpg" alt="Achievement 10">
+                </figure>
+                <div class="achievement-content">
+                  <h3 class="h4 card-title">Paper Presentation</h3>
+                  <p class="achievement-text">
+                    Secured First Prize in the Paper presentation in Nandha Engineering College.
+                  </p>
+                </div>
+              </div>
+
+              <div class="achievement-card" data-reveal="left">
+                <figure class="achievement-banner">
+                  <img src="./assets/images/JJ prize.jpg" alt="Achievement 11">
+                </figure>
+                <div class="achievement-content">
+                  <h3 class="h4 card-title">Project Presentation</h3>
+                  <p class="achievement-text">
+                    Secured First Prize in the Project presentation in JJ College.
+                  </p>
+                </div>
+              </div>
+
+              <div class="achievement-card" data-reveal="right">
+                <figure class="achievement-banner">
+                  <img src="./assets/images/JJ paper.jpg" alt="Achievement 12">
+                </figure>
+                <div class="achievement-content">
+                  <h3 class="h4 card-title">Technical Presentation</h3>
+                  <p class="achievement-text">
+                    Secured First prize in the Technical Presentation Conducted by JJ College.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- New Fifth Row -->
+            <div class="achievement-row">
+              <div class="achievement-card" data-reveal="left">
+                <figure class="achievement-banner">
+                  <img src="./assets/images/ehorizon.jpeg" alt="IEEE Paper Prize">
+                </figure>
+                <div class="achievement-content">
+                  <h3 class="h4 card-title">Technical Presentation</h3>
+                  <p class="achievement-text">
+                    Secured First prize for Best Idea pitch in the Technical Presentation in Kongu Engineering College.
+                  </p>
+                </div>
+              </div>
+
+              <div class="achievement-card" data-reveal="left">
+                <figure class="achievement-banner">
+                  <img src="./assets/images/devorgehack.jpeg" alt="Vista Paper Prize">
+                </figure>
+                <div class="achievement-content">
+                  <h3 class="h4 card-title">Devforge Hackathon</h3>
+                  <p class="achievement-text">
+                    Secured First Prize in the 24 hrs Hackathon in AI Domain.
+                  </p>
+                </div>
+              </div>
+
+              <div class="achievement-card" data-reveal="right">
+                <figure class="achievement-banner">
+                  <img src="./assets/images/kprhack.jpeg" alt="Technical Paper Award">
+                </figure>
+                <div class="achievement-content">
+                  <h3 class="h4 card-title">KPR Hackathon</h3>
+                  <p class="achievement-text">
+                  Made as a finalist for the 24 hrs Hackathon Among 6000 participants via Unstop.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- 
+        - #CONTACT
+      -->
+
+      <section class="section contact" aria-label="contact" id="contact">
+        <div class="container">
+
+          <div class="contact-card">
+
+            <div class="contact-content" data-reveal="left">
+
+              <div class="card-icon">
+                <img src="./assets/images/icon-5.svg" width="44" height="44" loading="lazy" alt="envelop icon">
+              </div>
+
+              <h2 class="h2 section-title">If you like what you see, let's work together.</h2>
+
+              <p class="section-text">
+                I bring rapid solutions to make the life of my clients easier. Have any questions? Reach out to me from
+                this contact form and I will get back to you shortly.
+              </p>
+
+            </div>
+
+            <form action="" class="contact-form" data-reveal="right">
+
+              <div class="input-wrapper">
+                <input type="text" name="name" placeholder="Name *" required class="input-field">
+
+                <input type="email" name="email_address" placeholder="Email *" required class="input-field">
+              </div>
+
+              <textarea name="message" placeholder="Message *" required class="input-field"></textarea>
+
+              <button type="submit" class="btn btn-secondary">Send message</button>
+
+            </form>
+
+          </div>
+
+        </div>
+      </section>
+
+    </article>
+  </main>
+
+  <div class="success-message" id="successMessage">Message sent successfully! 🎉</div>
+
+  <!-- 
+    - #FOOTER
+  -->
+
+  <footer class="footer">
+    <div class="container">
+
+      <p class="copyright">
+        © 2025 mohandeveloper. All rights reserved.
+      </p>
+
+      <ul class="social-list">
+
+        <li>
+          <a href="http://www.linkedin.com/in/%20mohanraja-tech" target="_blank" class="social-link">
+            <ion-icon name="logo-linkedin"></ion-icon>
+          </a>
+        </li>
+
+        <li>
+          <a href="https://github.com/MohanRaja-tech" target="_blank" class="social-link">
+            <ion-icon name="logo-github"></ion-icon>
+          </a>
+        </li>
+
+        <li>
+          <a href="https://leetcode.com/u/Mohan_06/" target="_blank" class="social-link">
+            <svg class="leetcode-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.83 5.83 0 0 0 .349 1.017 5.938 5.938 0 0 0 1.271 1.818l4.277 4.193.039.038c2.248 2.165 5.852 2.133 8.063-.074l2.396-2.392c.54-.54.54-1.414.003-1.955a1.378 1.378 0 0 0-1.951-.003l-2.396 2.392a3.021 3.021 0 0 1-4.205.038l-.02-.019-4.276-4.193c-.652-.64-.972-1.469-.948-2.263a2.68 2.68 0 0 1 .066-.523 2.545 2.545 0 0 1 .619-1.164L9.13 8.114c1.058-1.134 3.204-1.27 4.43-.278l3.501 2.831c.593.48 1.461.387 1.94-.207a1.384 1.384 0 0 0-.207-1.943l-3.5-2.831c-.8-.647-1.766-1.045-2.774-1.202l2.015-2.158A1.384 1.384 0 0 0 13.483 0zm-2.866 12.815a1.38 1.38 0 0 0-1.38 1.382 1.38 1.38 0 0 0 1.38 1.382H20.79a1.38 1.38 0 0 0 1.38-1.382 1.38 1.38 0 0 0-1.38-1.382z"/>
+            </svg>
+          </a>
+        </li>
+
+      </ul>
+
+    </div>
+  </footer>
+
+
+
+
+
+  <!-- 
+    - custom js link
+  -->
+  <script src="./assets/js/script.js"></script>
+
+  <script>
+    // Initialize EmailJS with your actual public key
+    emailjs.init('VBA93du-BPFL9mkqe');
+
+    // Contact form submission with EmailJS
+    document.querySelector('.contact-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const submitBtn = this.querySelector('button[type="submit"]');
+        const originalText = submitBtn.textContent;
+        const successMessage = document.getElementById('successMessage');
+        
+        // Show loading state
+        submitBtn.textContent = 'Sending...';
+        submitBtn.disabled = true;
+        
+        // Get form data with enhanced information
+        const formData = {
+            to_email: 'mohantwo3@gmail.com',
+            from_name: this.name.value,
+            from_email: this.email_address.value,
+            message: this.message.value,
+            reply_to: this.email_address.value,
+            sent_date: new Date().toLocaleString('en-US', {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit',
+                timeZoneName: 'short'
+            }),
+            website_url: window.location.href,
+            user_agent: navigator.userAgent.split(')')[0] + ')'
+        };
+        
+        console.log('Attempting to send email with data:', formData);
+        
+        // Send email using EmailJS with your actual service ID and template ID
+        emailjs.send('service_86ljnhg', 'template_5ka9hfc', formData)
+            .then(function(response) {
+                console.log('SUCCESS!', response.status, response.text);
+                
+                // Show success message
+                successMessage.textContent = 'Message sent successfully! 🎉 I will get back to you soon.';
+                successMessage.style.background = 'linear-gradient(45deg, #10b981, #059669)';
+                successMessage.classList.add('show');
+                
+                // Reset form
+                document.querySelector('.contact-form').reset();
+                
+                // Hide message after 5 seconds
+                setTimeout(() => {
+                    successMessage.classList.remove('show');
+                    successMessage.style.background = 'linear-gradient(45deg, #3f78e0, #7cb798)';
+                }, 5000);
+                
+            }, function(error) {
+                console.log('FAILED...', error);
+                
+                // Show specific error message
+                let errorMsg = 'Failed to send message. ';
+                if (error.text && error.text.includes('template')) {
+                    errorMsg += 'Email template "contact_form" not found. Please create it in EmailJS dashboard.';
+                } else if (error.text && error.text.includes('service')) {
+                    errorMsg += 'Service configuration issue. Please check your EmailJS service.';
+                } else {
+                    errorMsg += 'Please try again or contact directly at mohantwo3@gmail.com';
+                }
+                
+                successMessage.textContent = errorMsg;
+                successMessage.style.background = 'linear-gradient(45deg, #dc2626, #ef4444)';
+                successMessage.classList.add('show');
+                
+                setTimeout(() => {
+                    successMessage.classList.remove('show');
+                    successMessage.style.background = 'linear-gradient(45deg, #3f78e0, #7cb798)';
+                }, 8000);
+            })
+            .finally(function() {
+                // Reset button state
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            });
+    });
+
+    // Enhanced Live Coding Stats with Error Handling
+    function initializeCodingStats() {
+        // Add loading indicators
+        const leetcodeStats = document.getElementById('leetcode-stats');
+        const gfgStats = document.getElementById('gfg-stats');
+        
+        // Error handling for image loading
+        const images = document.querySelectorAll('#leetcode-stats img, #gfg-stats img');
+        images.forEach(img => {
+            img.addEventListener('error', function() {
+                console.log('Failed to load:', this.src);
+                this.style.display = 'none';
+                
+                // Create fallback message
+                const fallback = document.createElement('div');
+                fallback.style.cssText = `
+                    background: var(--card-bg);
+                    border: 2px dashed rgba(255,255,255,0.3);
+                    border-radius: 12px;
+                    padding: 2rem;
+                    text-align: center;
+                    color: var(--text-secondary);
+                    font-style: italic;
+                `;
+                fallback.innerHTML = `
+                    <div style="margin-bottom: 1rem;">📊</div>
+                    <div>Live stats loading...</div>
+                    <div style="font-size: 0.9rem; margin-top: 0.5rem;">
+                        Visit profile for latest updates
+                    </div>
+                `;
+                this.parentNode.insertBefore(fallback, this.nextSibling);
+            });
+            
+            // Add loading animation
+            img.addEventListener('load', function() {
+                this.style.opacity = '0';
+                this.style.transition = 'opacity 0.5s ease';
+                setTimeout(() => {
+                    this.style.opacity = '1';
+                }, 100);
+            });
+        });
+
+        // Add refresh functionality
+        addRefreshButtons();
+        
+        // Auto-refresh every 5 minutes
+        setInterval(() => {
+            refreshCodingStats();
+        }, 300000); // 5 minutes
+    }
+
+    function addRefreshButtons() {
+        const containers = [
+            { id: 'leetcode-stats', label: 'Refresh LeetCode' },
+            { id: 'gfg-stats', label: 'Refresh GFG' }
+        ];
+
+        containers.forEach(container => {
+            const element = document.getElementById(container.id);
+            if (element) {
+                const refreshBtn = document.createElement('button');
+                refreshBtn.style.cssText = `
+                    background: var(--gradient-1);
+                    border: none;
+                    color: white;
+                    padding: 0.5rem 1rem;
+                    border-radius: 8px;
+                    font-size: 0.9rem;
+                    cursor: pointer;
+                    margin-top: 1rem;
+                    transition: all 0.3s ease;
+                `;
+                refreshBtn.innerHTML = `🔄 ${container.label}`;
+                refreshBtn.addEventListener('click', () => refreshCodingStats());
+                refreshBtn.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-2px)';
+                    this.style.boxShadow = '0 4px 15px rgba(79, 70, 229, 0.4)';
+                });
+                refreshBtn.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                    this.style.boxShadow = 'none';
+                });
+                
+                element.appendChild(refreshBtn);
+            }
+        });
+    }
+
+    function refreshCodingStats() {
+        const images = document.querySelectorAll('#leetcode-stats img, #gfg-stats img');
+        images.forEach(img => {
+            const currentSrc = img.src;
+            img.src = '';
+            // Add timestamp to force refresh
+            const separator = currentSrc.includes('?') ? '&' : '?';
+            img.src = currentSrc + separator + 'refresh=' + Date.now();
+        });
+    }
+
+    // Animate stats cards on scroll
+    function animateStatsOnScroll() {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.transform = 'translateY(0)';
+                    entry.target.style.opacity = '1';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        const statsCards = document.querySelectorAll('#leetcode-stats, #gfg-stats');
+        statsCards.forEach(card => {
+            card.style.transform = 'translateY(50px)';
+            card.style.opacity = '0';
+            card.style.transition = 'all 0.6s ease';
+            observer.observe(card);
+        });
+    }
+
+    // Initialize when DOM is loaded
+    document.addEventListener('DOMContentLoaded', function() {
+        initializeCodingStats();
+        animateStatsOnScroll();
+    });
+  </script>
+
+  <!-- 
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+  <!-- EmailJS SDK for contact form -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>EmailJS Test</title>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+</head>
+<body>
+    <h2>EmailJS Test Form</h2>
+    <form id="test-form">
+        <input type="text" id="name" placeholder="Your Name" required><br><br>
+        <input type="email" id="email" placeholder="Your Email" required><br><br>
+        <textarea id="message" placeholder="Your Message" required></textarea><br><br>
+        <button type="submit">Test Send</button>
+    </form>
+    
+    <div id="result"></div>
+
+    <script>
+        // Initialize EmailJS
+        emailjs.init('VBA93du-BPFL9mkqe');
+
+        document.getElementById('test-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const result = document.getElementById('result');
+            result.innerHTML = 'Sending...';
+            
+            const formData = {
+                to_email: 'mohantwo3@gmail.com',
+                from_name: document.getElementById('name').value,
+                from_email: document.getElementById('email').value,
+                message: document.getElementById('message').value,
+                reply_to: document.getElementById('email').value
+            };
+            
+            console.log('Testing with:', formData);
+            
+            emailjs.send('service_86ljnhg', 'template_5ka9hfc', formData)
+                .then(function(response) {
+                    console.log('SUCCESS!', response);
+                    result.innerHTML = '<span style="color: green;">✅ Email sent successfully!</span>';
+                }, function(error) {
+                    console.log('ERROR:', error);
+                    result.innerHTML = '<span style="color: red;">❌ Error: ' + JSON.stringify(error) + '</span>';
+                });
+        });
+    </script>
+</body>
+</html>
